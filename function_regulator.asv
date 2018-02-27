@@ -1,0 +1,138 @@
+function [y,t] = function_regulator(a,N,Ts,bv,hx,regulatorType,savefile)
+% På/av-regulering av vattenmodellen (nivå h1 och h2), för h1
+
+% ******* DEL A: Beskrivning av de olika variablerna *******
+% utgångsvariablerna (vektorer med n värden):
+%   - y: nivå (höjd) i behållaren x, anges i steg_svar('A0' = tank 1, 'A1' = tank 2)
+%   - t: tiden
+%   - u: styrsignal till pumpen
+
+% ingångsvariablerna:
+%   - a: arduino-objekt som fås med funktionen a = arduino_com('COMxx')
+%   - N: antal samplingar
+%   - Ts: samplingstiden i sek.
+%   - bv: börvärdet för nivåregleringen (0..100%)
+%   - hx: intresserade av ärvärdet för tanken x som ska läsas av med analogRead
+% ********************************************************
+
+
+
+% ******* DEL B: Initialisering av in- och utgångar och interna variabler *******
+% analoga ingångar för mätning av vattennivå: 'A0', 'A1'
+% analog utgång för pumpstyrningen, välj analog utgång 'DAC0'
+% Räkna ut börvärdet i absoluta tal
+r=(bv*H1Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
+% *******************************************************************************
+
+
+
+% *** DEL C: Skapa och initialisera olika variabler för att kunna spara mätresultat ***
+% skapa vektorer för att spara mätvärden under experimentet, genom att fylla en vektor med N-nullor
+y = zeros(1, N);  % vektor med N nullor på en (1) rad som ska fyllas med mätningar av nivån i vattentank x (anges i steg_svar)
+e = zeros(1, N);  % vektor med N nullor på en (1) rad som ska fyllas med beräkningar av felvärdet e
+u = zeros(1, N);  % vektor som ska fyllas med beräkningar av styrvärdet u
+t = (1:N)*dT;     % vektor för tiden som en numrering av tidspunkter från 1 till N gånger samplingstiden
+ok=0;             % används för att upptäcka för korta samplingstider
+% *************************************************************************************
+
+
+
+% ******* DEL D: starta regleringen *******
+for k=1:N %slinga kommer att köras N-gångar, varje gång tar exakt Ts-sekunder
+    
+    start = cputime; %startar en timer för att kunna mäta tiden för en loop
+    if ok <0 %testar om samplingen är för kort
+        k % sampling time too short!
+        disp('samplingstiden är för lite! Ök värdet för Ts');
+        return
+    end
+    
+    % läs in sensorvärden
+    y(k)= a.analogRead(hx); % mät nivån i behållaren hx
+    
+    e(k)=r-y(k); % beräkna felvärdet som skillnaden mellan börvärdet och ärvärdet
+    
+    % ------------ Regulator block START ------------
+    switch(regulatorType)
+        
+        case 'twoStateRegulator'
+            if(e(k) >= 0)
+                u(k) = 255;
+            elseif(e(k) < 0)
+                u(k) = 0;
+            end
+            
+        case 'multipleStateRegulator'
+            if (e(k) > v/4)
+                u(k) = 255;
+            elseif(e(k) > 0)
+                u(k) = 180;
+            elseif(e(k) < 0)
+                u(k) = 0;
+            end
+            
+        case 'p_regulator'
+            u(k)=e(k); % p-regulator, Kp=1
+            
+        case 'pid_regulator'
+            if k>1 % Vi kan inte anta ett värde som inte existerar än
+                u(k) = K*(e(k) + Ts/Ti*sum(e)+Td*(e(k)-e(k-1))/Ts);
+            end
+            
+        case 'pd_regulator'
+            if k>1 % Vi kan inte anta ett värde som inte existerar än
+                u(k) = K*(e(k) + Td *(e(k)-e(k-1))/Ts);
+            end
+            
+        case 'defaultStepAnswer'
+            u(k) = 45;
+            
+    end
+    % ------------ Regulator block END ------------
+    
+    
+    u(k) = min(max(0, round(u(k))), 255); % begränsa styrvärdet mellan 0-255
+    analogWrite(a,u(k),'DAC0');           % skriv ut styrvärdet
+    
+ 
+    % ------- online-plot START -------
+    figure(1)
+    plot(t,y,'k-',t,u,'m:',t,r,'y:');
+    xlabel('samplingar (k)');
+    if(hx == 'a0')
+        title('Behållare 1, ärvärdet (y), styrvärdet (u), börvärdet (r)');
+    else
+        title('Behållare 2, ärvärdet (y), styrvärdet (u), börvärdet (r)');
+    end
+    legend('y ', 'u ', 'r ');
+    % ------- online-plot END -------
+    
+    
+    elapsed=cputime-start; % räknar åtgången tid i sekunder
+    ok=(dT-elapsed);       % sparar tidsmarginalen i ok
+    pause(ok);             % pausar resterande samplingstid
+    
+end % -for (slut av samplingarna)
+
+
+% DEL E: avsluta experimentet
+analogWrite(a,0,'DAC0'); % stäng av pumpen
+
+
+% plotta en fin slutbild,
+plot(t,y,'k-',t,u,'m:',t,r,'y:');
+
+xlabel('samplingar (k)')
+ylabel('nivå (y), styrsignal (u), börvärde (r)')
+
+if(hx == 'a0')
+   title('Behållare 1, Onoff-reglering vattentankmodel');
+else
+   title('Behållare 2, Onoff-reglering vattentankmodel');
+end
+
+legend('y ', 'u ', 'r ')
+saveas(figure(2), savefile);
+
+end
+
