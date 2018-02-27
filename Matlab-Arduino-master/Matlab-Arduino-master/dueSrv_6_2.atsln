@@ -1,0 +1,20 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "dueSrv", "dueSrv\dueSrv_6_2.cproj", "{4181C71D-0173-4687-9F31-53B0883FB7AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4181C71D-0173-4687-9F31-53B0883FB7AA}.Debug|ARM.ActiveCfg = Debug|ARM
+		{4181C71D-0173-4687-9F31-53B0883FB7AA}.Debug|ARM.Build.0 = Debug|ARM
+		{4181C71D-0173-4687-9F31-53B0883FB7AA}.Release|ARM.ActiveCfg = Release|ARM
+		{4181C71D-0173-4687-9F31-53B0883FB7AA}.Release|ARM.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
