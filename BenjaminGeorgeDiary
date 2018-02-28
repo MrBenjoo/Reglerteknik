@@ -1,0 +1,636 @@
+diary ON
+function_regulator
+{Undefined function or variable 'bv'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 24)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',24,0)">line 24</a>)
+r=(bv*H1Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',24,0)
+function_regulator
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 26)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',26,0)">line 26</a>)
+r=(bv*H1Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
+} 
+steg_svar
+The port COM3 is already used by MATLAB
+If you are sure that the board is connected to COM3
+then delete the object, execute:
+  delete(instrfind({'Port'},{'COM3'}))
+to delete the port, disconnect the cable, reconnect it,
+and then create a new arduino object
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('arduino_com', 'M:\Reglerteknik-VT-18\Reglerteknik\arduino_com.m', 54)" style="font-weight:bold">arduino_com</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\arduino_com.m',54,0)">line 54</a>)
+Port COM3 already used by MATLAB
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 4)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',4,0)">line 4</a>)
+a = arduino_com('COM3');
+} 
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+{In an assignment  A(:) = B, the number of elements in A and B must be the same.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 58)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',58,0)">line 58</a>)
+    e(k)=r-y(k); % ber?kna felv?rdet som skillnaden mellan b?rv?rdet och ?rv?rdet
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50);
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',58,0)
+function_regulator
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 26)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',26,0)">line 26</a>)
+r=(bv*H1Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',26,0)
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+{In an assignment  A(:) = B, the number of elements in A and B must be the same.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 59)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',59,0)">line 59</a>)
+    e(k)=r-h1(k); % ber?kna felv?rdet som skillnaden mellan b?rv?rdet och ?rv?rdet
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50);
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',59,0)
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+{In an assignment  A(:) = B, the number of elements in A and B must be the same.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 59)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',59,0)">line 59</a>)
+    e(k)=r-h1(k); % ber?kna felv?rdet som skillnaden mellan b?rv?rdet och ?rv?rdet
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50);
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',59,0)
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)
+matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 59)
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',59,0)
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',59,0)
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',59,0)
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+{Undefined function or variable 'regulatorType'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 62)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',62,0)">line 62</a>)
+    switch(regulatorType)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50);
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',62,0)
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+{Undefined function or variable 'y'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 106)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',106,0)">line 106</a>)
+    plot(t,y,'k-',t,u,'m:',t,r,'y:');
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50, regulatorType);
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',106,0)
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot')" style="font-weight:bold">plot</a>
+Error in color/linetype argument.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 106)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',106,0)">line 106</a>)
+    plot(t,h1,'k-',t,u,'m:',t,r,'h1:');
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50, regulatorType);
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',106,0)
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot')" style="font-weight:bold">plot</a>
+Error in color/linetype argument.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 106)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',106,0)">line 106</a>)
+    plot(t,h1,'k-',t,u,'m:',t,r,'h1:');
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50, regulatorType);
+} 
+help plot
+ <strong>plot</strong>   Linear plot. 
+    <strong>plot</strong>(X,Y) plots vector Y versus vector X. If X or Y is a matrix,
+    then the vector is plotted versus the rows or columns of the matrix,
+    whichever line up.  If X is a scalar and Y is a vector, disconnected
+    line objects are created and plotted as discrete points vertically at
+    X.
+ 
+    <strong>plot</strong>(Y) plots the columns of Y versus their index.
+    If Y is complex, <strong>plot</strong>(Y) is equivalent to <strong>plot</strong>(real(Y),imag(Y)).
+    In all other uses of <strong>plot</strong>, the imaginary part is ignored.
+ 
+    Various line types, plot symbols and colors may be obtained with
+    <strong>plot</strong>(X,Y,S) where S is a character string made from one element
+    from any or all the following 3 columns:
+ 
+           b     blue          .     point              -     solid
+           g     green         o     circle             :     dotted
+           r     red           x     x-mark             -.    dashdot 
+           c     cyan          +     plus               --    dashed   
+           m     magenta       *     star             (none)  no line
+           y     yellow        s     square
+           k     black         d     diamond
+           w     white         v     triangle (down)
+                               ^     triangle (up)
+                               <     triangle (left)
+                               >     triangle (right)
+                               p     pentagram
+                               h     hexagram
+                          
+    For example, <strong>plot</strong>(X,Y,'c+:') plots a cyan dotted line with a plus 
+    at each data point; <strong>plot</strong>(X,Y,'bd') plots blue diamond at each data 
+    point but does not draw any line.
+ 
+    <strong>plot</strong>(X1,Y1,S1,X2,Y2,S2,X3,Y3,S3,...) combines the plots defined by
+    the (X,Y,S) triples, where the X's and Y's are vectors or matrices 
+    and the S's are strings.  
+ 
+    For example, <strong>plot</strong>(X,Y,'y-',X,Y,'go') plots the data twice, with a
+    solid yellow line interpolating green circles at the data points.
+ 
+    The <strong>plot</strong> command, if no color is specified, makes automatic use of
+    the colors specified by the axes ColorOrder property.  By default,
+    <strong>plot</strong> cycles through the colors in the ColorOrder property.  For
+    monochrome systems, <strong>plot</strong> cycles over the axes LineStyleOrder property.
+ 
+    Note that RGB colors in the ColorOrder property may differ from
+    similarly-named colors in the (X,Y,S) triples.  For example, the 
+    second axes ColorOrder property is medium green with RGB [0 .5 0],
+    while <strong>plot</strong>(X,Y,'g') plots a green line with RGB [0 1 0].
+ 
+    If you do not specify a marker type, <strong>plot</strong> uses no marker. 
+    If you do not specify a line style, <strong>plot</strong> uses a solid line.
+ 
+    <strong>plot</strong>(AX,...) plots into the axes with handle AX.
+ 
+    <strong>plot</strong> returns a column vector of handles to lineseries objects, one
+    handle per plotted line. 
+ 
+    The X,Y pairs, or X,Y,S triples, can be followed by 
+    parameter/value pairs to specify additional properties 
+    of the lines. For example, <strong>plot</strong>(X,Y,'LineWidth',2,'Color',[.6 0 0]) 
+    will create a plot with a dark red line width of 2 points.
+ 
+    Example
+       x = -pi:pi/10:pi;
+       y = tan(sin(x)) - sin(tan(x));
+       plot(x,y,'--rs','LineWidth',2,...
+                       'MarkerEdgeColor','k',...
+                       'MarkerFaceColor','g',...
+                       'MarkerSize',10)
+ 
+    See also <a href="matlab:help plottools">plottools</a>, <a href="matlab:help semilogx">semilogx</a>, <a href="matlab:help semilogy">semilogy</a>, <a href="matlab:help loglog">loglog</a>, <a href="matlab:help plotyy">plotyy</a>, <a href="matlab:help plot3">plot3</a>, <a href="matlab:help grid">grid</a>,
+    <a href="matlab:help title">title</a>, <a href="matlab:help xlabel">xlabel</a>, <a href="matlab:help ylabel">ylabel</a>, <a href="matlab:help axis">axis</a>, <a href="matlab:help axes">axes</a>, <a href="matlab:help hold">hold</a>, <a href="matlab:help legend">legend</a>, <a href="matlab:help subplot">subplot</a>, <a href="matlab:help scatter">scatter</a>.
+
+    <a href="matlab:doc plot">Reference page for plot</a>
+    <a href="matlab:matlab.internal.language.introspective.overloads.displayOverloads('plot')">Other functions named plot</a>
+
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot')" style="font-weight:bold">plot</a>
+Error in color/linetype argument.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 106)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',106,0)">line 106</a>)
+    plot(t,h1,'k-',t,u,'m:',t,r,'h1:');
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50, regulatorType);
+} 
+function_regulator
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 26)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',26,0)">line 26</a>)
+r=(bv*H1Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
+} 
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+
+k =
+
+     2
+
+samplingstiden ?r f?r lite! ?k v?rdet f?r Ts
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('save')" style="font-weight:bold">save</a>
+Variable 'y' not found.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 56)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',56,0)">line 56</a>)
+        save(savefileVariables, 'y', 't');
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',56,0)
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+[Warning: Ignoring extra legend entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 646)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',646,0)">line 646</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 316)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',316,0)">line 316</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p', 259)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\scribe\legend.p',259,0)">line 259</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 113)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',113,0)">line 113</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)] 
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 119)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',119,0)">line 119</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50, regulatorType);
+} 
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot')" style="font-weight:bold">plot</a>
+Error in color/linetype argument.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 106)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',106,0)">line 106</a>)
+    plot(t,h1,'k-',t,u,'m:',t,r,'h1:');
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 55)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)">line 55</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50, regulatorType);
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',106,0)
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',55,0)
+steg_svar
+Regulating tank 1...
+defauldTtepAnswer
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot')" style="font-weight:bold">plot</a>
+Error in color/linetype argument.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 106)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',106,0)">line 106</a>)
+    plot(t,h1,'k-',t,u,'m:',t,r,'h1:');
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 56)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',56,0)">line 56</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50, regulatorType);
+} 
+steg_svar
+Regulating tank 1...
+defauldTtepAnswer
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot')" style="font-weight:bold">plot</a>
+Error in color/linetype argument.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 106)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',106,0)">line 106</a>)
+    plot(t,h1,'k-',t,u,'m:',t,r,'h1:');
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 56)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',56,0)">line 56</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50, regulatorType);
+} 
+steg_svar
+Regulating tank 1...
+defaultStepAnswer
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot')" style="font-weight:bold">plot</a>
+Error in color/linetype argument.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 106)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',106,0)">line 106</a>)
+    plot(t,h1,'k-',t,u,'m:',t,r,'h1:');
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 56)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',56,0)">line 56</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50, regulatorType);
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',106,0)
+function_regulator
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 26)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',26,0)">line 26</a>)
+r=(bv*H1Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
+} 
+function_regulator
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 26)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',26,0)">line 26</a>)
+r=ones(1,N); % skapar vektor med r i en rad med N element
+} 
+function_regulator
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 33)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',33,0)">line 33</a>)
+h1 = zeros(1, N); %vektor med N nullor p? en (1) rad som ska fyllas med m?tningar av
+niv?n i vattentank 1
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',33,0)
+function_regulator
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 34)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',34,0)">line 34</a>)
+h2 = zeros(1, N); %vektor med N nullor p? en (1) rad som ska fyllas med m?tningar av
+niv?n i vattentank 2
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',34,0)
+function_regulator
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 36)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',36,0)">line 36</a>)
+u = zeros(1, N);  % vektor som ska fyllas med ber?kningar av styrv?rdet u
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',36,0)
+function_regulator
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 44)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',44,0)">line 44</a>)
+for k=1:N %slinga kommer att k?ras N-g?ngar, varje g?ng tar exakt Ts-sekunder
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',44,0)
+function_regulator
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 26)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',26,0)">line 26</a>)
+r=(bv*H1Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',26,0)
+function_regulator
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 24)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',24,0)">line 24</a>)
+r=(bv*H1Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',24,0)
+clear
+clearall
+{Undefined function or variable 'clearall'.
+} 
+clearAll
+{Undefined function or variable 'clearAll'.
+} 
+clear all
+clear
+cls
+{Undefined function or variable 'cls'.
+} 
+clr
+{Undefined function or variable 'clr'.
+} 
+clf
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+defaultStepAnswer
+
+k =
+
+     2
+
+samplingstiden ?r f?r lite! ?k v?rdet f?r Ts
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('save')" style="font-weight:bold">save</a>
+Unable to write file B21_stegsvarm?tning_?vre_vattentank_ofInterest.mat: Invalid
+argument.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 57)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',57,0)">line 57</a>)
+        save(savefileVariables, 'h1', 't');
+} 
+opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',57,0)
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+defaultStepAnswer
+
+k =
+
+     2
+
+samplingstiden ?r f?r lite! ?k v?rdet f?r Ts
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+defaultStepAnswer
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 119)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',119,0)">line 119</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 56)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',56,0)">line 56</a>)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50, regulatorType);
+} 

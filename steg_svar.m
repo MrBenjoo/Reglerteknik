@@ -1,19 +1,19 @@
 % Connect to the arduino, change COM-number as neccessary.
 % Need to run the program 2 times for it to start, do not clear variable second start.
-% clear all
-% a = arduino_com('COM17');
+clear all
+a = arduino_com('COM3');
 
 
-h1 = 'a0'; % Behållare 1 
-h2 = 'a1'; % Behållare 2 
+h1 = 'a0'; % Beh?llare 1 
+h2 = 'a1'; % Beh?llare 2 
 
 
-% Konstanta parameter-värden
-N = 360*3; %3 min * X
-Ts = 0.5;
+% Konstanta parameter-v?rden
+N = 60*5; 
+dT = 1;
 v1 = 516; 
 v2 = 128;
-% Antar att KTdTi inte behövs för de första uppgifterna
+% Antar att KTdTi inte beh?vs f?r de f?rsta uppgifterna
 %KTdTi = [0.2028, 12.7632, 38.5261]; 
 OFF = 0;
 ON = 1;
@@ -32,64 +32,43 @@ regulator = struct('Type', {'twoStateRegulator', 'multipleStateRegulator',...
 
                 
 % Konfiguration av programmet
-tank1 = ON;
-tank2 = OFF;
-savefileVariables = 'B21_stegsvarmätning_övre_vattentank_ofInterest.mat';
-savefileFigure = 'stegsvarmätning_övre_vattentank_ofInterest.jpg';
+tank1 = OFF;
+tank2 = ON;
+saveFileVariables = 'P.1.2_stegsvar_undre_vattentank.mat';
+saveFileFigure = 'P.1.2_stegsvar_undre_vattentank.jpg';
 regulatorType = regulator(6).Type;
 loop = 1;
 TumregelMetoder = OFF;
 
 
-% Börja regleringen av behållarna...
+% B?rja regleringen av beh?llarna...
 while(loop)
    
     if(tank1 == ON)
         disp('Regulating tank 1...')
-        
-        % y = N samples av stegsvarsignalen
-        % t = tidsvektoren (N tidspunkter i sekunder)
-        [y,t] = function_regulator(a, N, Ts, v1, h1, regulatorType, savefileFigure);
-        save(savefileVariables, 'y', 't');
-        
-        % nedan är kod från vårterminen 17 
-        % [e1, u1, y1, t1, totalTimeElapsed] = function_regulator(a, N, Ts, v1, h1, regulatorType, KTdTi, savefileFigure);
-        % [e1, u1, y1, t1, totalTimeElapsed] = function_regulator(a, N, Ts, v1, h1, regulatorType, savefileFigure);
-        % disp('Styrvärdet: u1(k)= ' )
-        % u1(N) = u1(N)
-        % disp('Total time elapsed: ')
-        % totalTimeElapsed;
-        % save(savefileVariables, 'e1', 'u1', 'y1', 't1', 'totalTimeElapsed', 'Ts', 'KTdTi');
+        % utg?ngsvariabler: 
+        %   N samples av stegsvarsignalen
+        %   t = tidsvektoren (N tidspunkter i sekunder)
+        % ing?ngsvariabler: 
+        %   pos[4] --> p = val av inpudTignal
+        %   pos[5] --> m = styrning av pumpmotorn mellan 0% - 100%
+        disp(regulatorType)
+        [N,t] = function_regulator(a, N, dT, v1, h1, 50, regulatorType, saveFileFigure);
+        save(saveFileVariables, 'h1', 't'); 
     end
     
     if(tank2 == ON)
         disp('Regulating tank 2...')
-        
-        % y = N samples av stegsvarsignalen
-        % t = tidsvektoren (N tidspunkter i sekunder)
-        [y,t] = function_regulator(a, N, Ts, v1, h1, regulatorType, savefileFigure);
-        save(savefileVariables, 'y', 't');
-        
-        % nedan är kod från vårterminen 17 
-        %[e2, u2, y2, t2, totalTimeElapsed] = function_regulator(a, N, Ts, v2, h2, regulatorType, KTdTi, savefileFigure);
-        %if( TumregelMetoder == ON)
-            % Behöver variera K Ti o Td värden för att hitta självsvängning
-            % Börjar med att variera bara K för en P-regulator
-            % Efteråt Ti för en PI-regulator
-            % Slutligen Td för en PID-regulator
-            % Alltså en parameter i taget bestäms
-            %save(savefileVariables, 'e2', 'u2', 'y2', 't2', 'totalTimeElapsed', 'Ts', 'KTdTi');
-        %else
-             %save(savefileVariables, 'e2', 'u2', 'y2', 't2', 'totalTimeElapsed', 'Ts', 'KTdTi');
-        %end
-        
-        %disp('Styrvärdet: u2(k)= ' )
-        %u2(N) = u2(N)
-        %disp('Total time elapsed: ')
-        %totalTimeElapsed
+        % utg?ngsvariabler: 
+        %   N samples av stegsvarsignalen
+        %   t = tidsvektoren (N tidspunkter i sekunder)
+        % ing?ngsvariabler: 
+        %   pos[4] --> p = val av inpudTignal
+        %   pos[5] --> m = styrning av pumpmotorn mellan 0% - 100%
+        [N,t] = function_regulator(a, N, dT, v1, h2, 50, regulatorType, saveFileFigure);
+        %save(saveFileVariables, 'h1', 't');
     end
     
     analogWrite(a,0,'DAC0')
     loop = loop - 1;
 end
-
