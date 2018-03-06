@@ -1,0 +1,399 @@
+help diary
+ <strong>diary</strong> Save text of MATLAB session.
+    <strong>diary</strong> FILENAME causes a copy of all subsequent command window input
+    and most of the resulting command window output to be appended to the
+    named file.  If no file is specified, the file 'diary' is used.
+ 
+    <strong>diary</strong> OFF suspends it. 
+    <strong>diary</strong> ON turns it back on.
+    <strong>diary</strong>, by itself, toggles the diary state.
+ 
+    Use the functional form of <strong>diary</strong>, such as <strong>diary</strong>('file'),
+    when the file name is stored in a string.
+ 
+    See also <a href="matlab:help save">save</a>.
+
+    <a href="matlab:doc diary">Reference page for diary</a>
+
+diary ON
+steg_svar
+Attempting connection .............
+Connection successful!
+
+m =
+
+    75
+
+Regulating tank 1...
+defaultStepAnswer
+signal191.25
+     0
+
+signal191.25
+     6
+
+signal191.25
+     6
+
+signal191.25
+     6
+
+signal191.25
+     6
+
+signal191.25
+     7
+
+signal191.25
+     6
+
+signal191.25
+     6
+
+signal191.25
+     4
+
+signal191.25
+     5
+
+signal191.25
+     5
+
+signal191.25
+     5
+
+signal191.25
+     5
+
+signal191.25
+     6
+
+signal191.25
+     5
+
+signal191.25
+     7
+
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 130)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',130,0)">line 130</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 57)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',57,0)">line 57</a>)
+        [N,t] = function_regulator(a, N, dT, v2, h1, m, regulatorType, saveFileFigure);
+} 
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+defaultStepAnswer
+signal191.25
+     0
+
+signal191.25
+     5
+
+signal191.25
+     5
+
+signal191.25
+     6
+
+signal191.25
+     7
+
+signal191.25
+     4
+
+signal191.25
+     6
+
+signal191.25
+     6
+
+signal191.25
+     7
+
+signal191.25
+     5
+
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 130)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',130,0)">line 130</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 57)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',57,0)">line 57</a>)
+        [N,t] = function_regulator(a, N, dT, v2, h1, m, regulatorType, saveFileFigure);
+} 
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+defaultStepAnswer
+signal204
+     0
+
+signal204
+     5
+
+signal204
+     6
+
+signal204
+     5
+
+signal204
+     5
+
+signal204
+     6
+
+signal204
+     5
+
+signal204
+     6
+
+signal204
+     5
+
+signal204
+     6
+
+signal204
+     5
+
+signal204
+     6
+
+signal204
+     5
+
+signal204
+     7
+
+signal204
+     6
+
+signal204
+     6
+
+signal204
+     6
+
+signal204
+     6
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+   112
+
+signal204
+    67
+
+signal204
+    25
+
+signal204
+    17
+
+signal204
+    12
+
+signal204
+    10
+
+signal204
+     8
+
+signal204
+     7
+
+signal204
+     5
+
+signal204
+     3
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+signal204
+     0
+
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 130)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',130,0)">line 130</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 57)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',57,0)">line 57</a>)
+        [N,t] = function_regulator(a, N, dT, v2, h1, m, regulatorType, saveFileFigure);
+} 
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+defaultStepAnswer
+signal255
+     0
+
+signal255
+     0
+
+signal255
+     0
+
+signal255
+     0
+
+signal255
+     0
+
+signal255
+     0
+
+signal255
+     0
+
+signal255
+     0
+
+signal255
+     0
+
+signal255
+     0
+
+signal255
+     0
+
+signal255
+     0
+
+signal255
+     0
+
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 130)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',130,0)">line 130</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 57)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',57,0)">line 57</a>)
+        [N,t] = function_regulator(a, N, dT, v2, h1, m, regulatorType, saveFileFigure);
+} 
+steg_svar
+Attempting connection .............
+Connection successful!
+Regulating tank 1...
+defaultStepAnswer
+signal 255
+     0
+
+signal 255
+     0
+
+signal 255
+     0
+
+signal 255
+     0
+
+signal 255
+     0
+
+signal 255
+     0
+
+signal 255
+     0
+
+signal 255
+     0
+
+signal 255
+     0
+
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_regulator', 'M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m', 130)" style="font-weight:bold">function_regulator</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\function_regulator.m',130,0)">line 130</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steg_svar', 'M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m', 57)" style="font-weight:bold">steg_svar</a> (<a href="matlab: opentoline('M:\Reglerteknik-VT-18\Reglerteknik\steg_svar.m',57,0)">line 57</a>)
+        [N,t] = function_regulator(a, N, dT, v2, h1, m, regulatorType, saveFileFigure);
+} 

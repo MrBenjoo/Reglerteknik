@@ -3,28 +3,30 @@ function [N,t] = function_regulator(a, N, dT, bv, p, m, regulatorType, saveFile)
 % P?/av-regulering av vattenmodellen (niv? h1 och h2), f?r h1
 
 % ******* DEL A: Beskrivning av de olika variablerna *******
-% utg?ngsvariablerna (vektorer med n v?rden):
-%   - y: niv? (h?jd) i beh?llaren x, anges i steg_svar('A0' = tank 1, 'A1' = tank 2)
-%   - t: tiden
-%   - u: styrsignal till pumpen
 
-% ing?ngsvariablerna:
-%   - a: arduino-objekt som f?s med funktionen a = arduino_com('COMxx')
-%   - N: antal samplingar
-%   - Ts: samplingstiden i sek.
-%   - bv: b?rv?rdet f?r niv?regleringen (0..100%)
-%   - p: intresserade av ?rv?rdet f?r tanken x som ska l?sas av med analogRead
+% output values:
+%   - N: total samples
+%   - t: timevector with N samples in seconds
+
+% argument values:
+%   - a: arduino-object, accessed with: a = arduino_com('COMxx')
+%   - N: total samples
+%   - Ts: samplingtime in seconds
+%   - bv: desired level for the regulation (0..100%)
+%   - p: inputsignal ('A0' or 'A1')
 % ********************************************************
 
-% Best?mning av 100%-niv?v?rden i ?vre och undre vattentanken
-H1Max=300; %r?kna ut eller m?t niv?v?rdet f?r h1 n?r niv?n ?r maximalt
-H2Max=300; %r?kna ut eller m?t niv?v?rdet f?r h2 n?r niv?n ?r maximalt
+% 100% level-value for tank1 and tank2
+H1Max=740; % Max level-value for tank 1
+H2Max=745; % Max level-value for tank 2
 
 % ******* DEL B: Initialisering av in- och utg?ngar och interna variabler *******
 % analoga ing?ngar f?r m?tning av vattenniv?: 'A0', 'A1'
 % analog utg?ng f?r pumpstyrningen, v?lj analog utg?ng 'DAC0'
 % R?kna ut b?rv?rdet i absoluta tal
+
 r=(bv*H1Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
+
 % *******************************************************************************
 
 
@@ -40,24 +42,30 @@ ok=0;             % anv?nds f?r att uppt?cka f?r korta samplingstider
 % *************************************************************************************
 
 
-
 % ******* DEL D: starta regleringen *******
 for k=1:N %slinga kommer att k?ras N-g?ngar, varje g?ng tar exakt Ts-sekunder
     
     start = cputime; %startar en timer f?r att kunna m?ta tiden f?r en loop
     if ok <0 %testar om samplingen ?r f?r kort
         k % sampling time too short!
-        disp('samplingstiden ?r f?r lite! ?ka v?rdet f?r Ts');
+        disp('samplingstime too short! Increase the value for Ts');
         return
     end
     
-    % uppdatera tidsvektorn
+    % update timevector
     t(k)=k*dT;
     
-    % l?s in sensorv?rden
-    h1(k)= a.analogRead(p); % m?t niv?n i beh?llare 1
     
-    e(k)=r(k)-h1(k); % ber?kna felv?rdet som skillnaden mellan b?rv?rdet och ?rv?rdet
+    % ------------ Read sensor values START ------------
+    if(p == 'a0')
+        h1(k)= a.analogRead(p); % measure water level in tank 1
+        e(k)=r(k)-h1(k); % calculate the error (desired level - actual level)
+    else
+        h2(k)= a.analogRead(p); % measure water level in tank 2
+        e(k)=r(k)-h2(k); % calculate the error (desired level - actual level)
+    end
+    % ------------ Read sensor values END -----------
+    
     
     % ------------ Regulator block START ------------
     switch(regulatorType)
@@ -92,26 +100,31 @@ for k=1:N %slinga kommer att k?ras N-g?ngar, varje g?ng tar exakt Ts-sekunder
             end
             
         case 'defaultStepAnswer'
-            u(k) = 200;
+            u(k) = 255;
             
     end
     % ------------ Regulator block END ------------
     
     
-    u(k) = min(max(0, round(u(k))), 255); % begr?nsa styrv?rdet mellan 0-255
-    analogWrite(a,u(k),'DAC0');           % skriv ut styrv?rdet
+    u(k) = min(max(0, round(u(k))), 255)*(m/100); % limit the signal between 0-255
+    disp("signal " + u(k))
+    analogWrite(a,u(k),'DAC0');
     
- 
+    
     % ------- online-plot START -------
     figure(1)
-    plot(t,h1,'k-',t,u,'m:',t,r,'y:');
-    xlabel('samplingar (k)');
     if(p == 'a0')
-        title('Beh?llare 1, ?rv?rdet (y), styrv?rdet (u), b?rv?rdet (r)');
+        plot(t,h1,'k-',t,u,'m:',t,r,'y:');
+        xlabel('samplingar (k)');
+        title('tank 1, level (h1), signal (u), desired level(r)');
+        disp(h1(k));
     else
-        title('Beh?llare 2, ?rv?rdet (y), styrv?rdet (u), b?rv?rdet (r)');
+        plot(t,h2,'k-',t,u,'m:',t,r,'y:');
+        xlabel('samplingar (k)');
+        title('tank 2, level (h2), signal (u), desired level(r)');
+        disp(h2(k));
     end
-    legend('h1 ', 'u ', 'r ');
+    legend('h2 ', 'u ', 'r ');
     % ------- online-plot END -------
     
     
@@ -123,23 +136,24 @@ end % -for (slut av samplingarna)
 
 
 % DEL E: avsluta experimentet
-analogWrite(a,0,'DAC0'); % st?ng av pumpen
+analogWrite(a,0,'DAC0'); % turn pump off
 
-
-% plotta en fin slutbild,
+% plot a final picture
 figure(2)
-plot(t,h1,'k-',t,u,'m:',t,r,'y:');
-
-xlabel('samplingar (k)')
-ylabel('level (h1), signal (u), desired level (r)')
-
 if(p == 'a0')
-   title('Tank 1, stegsvar');
+    plot(t,h1,'k-',t,u,'m:',t,r,'y:');
+    xlabel('samplingar (k)')
+    ylabel('level (h1), signal (u), desired level (r)')
+    title('Tank 1, stegsvar');
+    legend('h1 ', 'u ', 'r ')
 else
-   title('Tank 2, stegsvar');
+    plot(t,h2,'k-',t,u,'m:',t,r,'y:');
+    xlabel('samplingar (k)')
+    ylabel('level (h2), signal (u), desired level (r)')
+    title('Tank 2, stegsvar');
+    legend('h2 ', 'u ', 'r ')
 end
 
-legend('h1 ', 'u ', 'r ')
 saveas(figure(2), saveFile);
 
 end
