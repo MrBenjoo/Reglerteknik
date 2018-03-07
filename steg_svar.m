@@ -4,8 +4,8 @@ clear all
 a = arduino_com('COM3');
 
 
-h1 = 'a0'; % Tank 1
-h2 = 'a1'; % Tank 2
+p1 = 'a0'; % Tank 1
+p2 = 'a1'; % Tank 2
 
 
 % Constant parameter values
@@ -45,14 +45,14 @@ while(loop)
     
     if(tank1 == ON)
         disp('Regulating tank 1...')
-        [N,t] = function_regulator(a, N, dT, v2, h1, m, regulatorType, saveFileFigure);
-        save(saveFileVariables, 'h1', 't');
+        [y,t] = function_regulator(a, N, dT, v2, p1, m, regulatorType, saveFileFigure);
+        save(saveFileVariables, 'y', 't');
     end
     
     if(tank2 == ON)
         disp('Regulating tank 2...')
-        [N,t] = function_regulator(a, N, dT, v1, h2, m, regulatorType, saveFileFigure);
-        save(saveFileVariables, 'h2', 't');
+        [y,t] = function_regulator(a, N, dT, v1, p2, m, regulatorType, saveFileFigure);
+        save(saveFileVariables, 'y', 't');
     end
     
     analogWrite(a,0,'DAC0')

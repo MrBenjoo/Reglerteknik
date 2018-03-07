@@ -1,4 +1,4 @@
-function [N,t] = function_regulator(a, N, dT, bv, p, m, regulatorType, saveFile)
+function [y,t] = function_regulator(a, N, dT, bv, p, m, regulatorType, saveFile)
 
 % P?/av-regulering av vattenmodellen (niv? h1 och h2), f?r h1
 
@@ -146,13 +146,16 @@ if(p == 'a0')
     ylabel('level (h1), signal (u), desired level (r)')
     title('Tank 1, stegsvar');
     legend('h1 ', 'u ', 'r ')
+    y = h1;
 else
     plot(t,h2,'k-',t,u,'m:',t,r,'y:');
     xlabel('samplingar (k)')
     ylabel('level (h2), signal (u), desired level (r)')
     title('Tank 2, stegsvar');
     legend('h2 ', 'u ', 'r ')
+    y = h2;
 end
+
 
 saveas(figure(2), saveFile);
 

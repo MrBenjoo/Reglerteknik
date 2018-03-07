@@ -1,0 +1,23 @@
+clear all
+load('data/P.1.2.1_stegsvar_ovre_vattentank.mat');
+
+windowSize = 5;
+
+b = (1/windowSize)* ones(1, windowSize);
+
+a = 1;
+
+h1 = filter(b,a,h1);
+
+  figure(3)
+  plot(t,h1,'k-', t,u,'m:');
+  xlabel('samples k') ;
+  ylabel('y, u');% ,e') ;
+  title('Tank 1, stegsvar') ;
+  legend('y', 'u');
+  hold('off');
+  
+  saveas(figure(3), 'filtreread_stegsvarm?tning_?vre_vattentankOfInterest.jpg');
+  %save('filtreread_stegsvarm?tning_?vre_vattentank.mat', 'e1', 'u1', 't2', 'totalTimeElapsed', 'Ts', 'y2');
+  save('filtreread_stegsvarm?tning_?vre_vattentankOfInterest.mat', 'e1', 'u1', 't1', 'totalTimeElapsed', 'Ts', 'y1');
+  %save('filtreread_stegsvarm?tning_?vre_vattentank.mat', 'e1', 'u1', 't2', 'totalTimeElapsed', 'Ts', 'y');
