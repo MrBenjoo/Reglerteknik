@@ -21,11 +21,12 @@ ON = 1;
 % 1 = 'twoStateRegulator',
 % 2 = 'multipleStateRegulator'
 % 3 = 'p_regulator',
-% 4 = 'pid_regulator'
-% 5 = 'pd_regulator'
-% 6 = 'defaultStepAnswer
+% 4 = 'pi_regulator'
+% 5 = 'pid_regulator'
+% 6 = 'pd_regulator'
+% 7 = 'defaultStepAnswer
 regulator = struct('Type', {'twoStateRegulator', 'multipleStateRegulator',...
-    'p_regulator', 'pid_regulator', 'pd_regulator',...
+    'p_regulator', 'pi_regulator', 'pid_regulator', 'pd_regulator',...
     'defaultStepAnswer'});
 
 
