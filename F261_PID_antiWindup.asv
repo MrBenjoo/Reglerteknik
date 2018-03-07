@@ -57,11 +57,12 @@ for k=1:N %slinga kommer att k?ras N-g?ngar, varje g?ng tar exakt Ts-sekunder
     
     y(k)= a.analogRead(p); % measure water level in tank 1 or 2 depending on variable p
     e(k)=r(k)-y(k); % calculate the error (desired level - actual level)
-    
     % ------------ Read sensor values END -----------
     
     
     % ------------ WINDUP START ------------
+   
+    
     if k>1 % Vi kan inte anta ett v?rde som inte existerar ?n
         if(windupActivated)
             u(k) = K*(e(k) + TD*(e(k)-e(k-1))/Ts);
@@ -70,14 +71,16 @@ for k=1:N %slinga kommer att k?ras N-g?ngar, varje g?ng tar exakt Ts-sekunder
         end
     end
     
-    if(u(k) < 180)
+    
+    
+    if(u(k) < 0)
         windupActivated = true;
     end
     
     if(y > (H1Max - 10))
         windupActivated = true;
     end
-    % ------------ WINDUP END ------------
+    
     
     u(k) = min(max(0, round(u(k))), 255)*(m/100); % limit the signal between 0-255
     disp("signal " + u(k))

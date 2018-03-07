@@ -1,4 +1,4 @@
-function [y,t] = F261_PID_antiWindup(a,N,dT,p,bv, K, TI, TD)
+function [y,t] = F261_PID_antiWindup(a,N,dT,bv, K1, TI1, TD1, K2, TI2, TD2, R)
 
 % ******* DEL A: Beskrivning av de olika variablerna *******
 
@@ -31,14 +31,16 @@ r=(bv*H1Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
 
 % *** DEL C: Skapa och initialisera olika variabler f?r att kunna spara m?tresultat ***
 % skapa vektorer f?r att spara m?tv?rden under experimentet, genom att fylla en vektor med N-nullor
-y = zeros(1, N); %vektor med N nullor p? en (1) rad som ska fyllas med m?tningar av niv?n i vattentank 1 och 2
-e = zeros(1, N);  % vektor med N nullor p? en (1) rad som ska fyllas med ber?kningar av felv?rdet e
-u = zeros(1, N);  % vektor som ska fyllas med ber?kningar av styrv?rdet u
+y1 = zeros(1, N); %vektor med N nullor p? en (1) rad som ska fyllas med m?tningar av niv?n i vattentank 1 och 2
+e1 = zeros(1, N);  % vektor med N nullor p? en (1) rad som ska fyllas med ber?kningar av felv?rdet e
+u1 = zeros(1, N);  % vektor som ska fyllas med ber?kningar av styrv?rdet u
+y2 = zeros(1, N); %vektor med N nullor p? en (1) rad som ska fyllas med m?tningar av niv?n i vattentank 1 och 2
+e2 = zeros(1, N);  % vektor med N nullor p? en (1) rad som ska fyllas med ber?kningar av felv?rdet e
+u2 = zeros(1, N);  % vektor som ska fyllas med ber?kningar av styrv?rdet u
 t = (1:N)*dT;     % vektor f?r tiden som en numrering av tidspunkter fr?n 1 till N g?nger samplingstiden
 ok=0;             % anv?nds f?r att uppt?cka f?r korta samplingstider
 % *************************************************************************************
 
-windupActivated = false;
 % ******* DEL D: starta regleringen *******
 for k=1:N %slinga kommer att k?ras N-g?ngar, varje g?ng tar exakt Ts-sekunder
     
@@ -55,34 +57,34 @@ for k=1:N %slinga kommer att k?ras N-g?ngar, varje g?ng tar exakt Ts-sekunder
     
     % ------------ Read sensor values START ------------
     
-    y(k)= a.analogRead(p); % measure water level in tank 1 or 2 depending on variable p
-    e(k)=r(k)-y(k); % calculate the error (desired level - actual level)
+    
+    
+    if(mod(k-1, R) == 0)
+        analogWrite(a,u1(k),'DAC0');
+        %In till R1 yttre kretsen, undre vattentanken
+        y1(k) = a.analogRead(1);
+        
+        e1(k) = r(k)-y1(k);
+        u1(k) = K1*(e1(k) + Ts/TI1*sum(e)+TD1*(e1(k)-e(k-1))/Ts);
+    end
+    
+    %In till R2 inre kretsen, ?vre vattentanken
+    y2(k) = a.analogRead(0);
+    
+    e2(k) = u1(k)-y2(k);
+    u2(k) = K2*(e2(k) + Ts/TI2*sum(e)+TD2*(e2(k)-e2(k-1))/Ts);
+    
+    u2(k) = min(max(0, round(u2(k))), 255)*(m/100); % limit the signal between 0-255
+    disp("signal " + u(k))
+    analogWrite(a,u2(k),'DAC0');
+    
     
     % ------------ Read sensor values END -----------
     
     
-    % ------------ WINDUP START ------------
-    if k>1 % Vi kan inte anta ett v?rde som inte existerar ?n
-        if(windupActivated)
-            u(k) = K*(e(k) + TD*(e(k)-e(k-1))/Ts);
-        else
-            u(k) = K*(e(k) + Ts/TI*sum(e)+TD*(e(k)-e(k-1))/Ts);
-        end
-    end
-    
-    if(u(k) < 180)
-        windupActivated = true;
-    end
-    
-    if(y > (H1Max - 10))
-        windupActivated = true;
-    end
-    % ------------ WINDUP END ------------
-    
-    u(k) = min(max(0, round(u(k))), 255)*(m/100); % limit the signal between 0-255
+    u1(k) = min(max(0, round(u1(k))), 255)*(m/100); % limit the signal between 0-255
     disp("signal " + u(k))
     analogWrite(a,u(k),'DAC0');
-    
     
     % ------- online-plot START -------
     figure(1)
