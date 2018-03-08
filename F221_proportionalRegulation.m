@@ -1,4 +1,4 @@
-function [y,t] = F221_proportionalRegulation(a,N,dT,p,bv, KP)
+function [y,u,t] = F221_proportionalRegulation(a,N,dT,p,m,bv,KP,saveFile)
 
 % ******* DEL A: Beskrivning av de olika variablerna *******
 
@@ -54,26 +54,26 @@ for k=1:N %slinga kommer att k?ras N-g?ngar, varje g?ng tar exakt Ts-sekunder
     
     
     % ------------ Read sensor values START ------------
-  
-     y(k)= a.analogRead(p); % measure water level in tank 1 or 2 depending on variable p
-     e(k)=r(k)-y(k); % calculate the error (desired level - actual level)
+    
+    y(k)= a.analogRead(p); % measure water level in tank 1 or 2 depending on variable p
+    e(k)=r(k)-y(k); % calculate the error (desired level - actual level)
+    disp("r(k) = " + r(k) + " y(k) =" + y(k))
     % ------------ Read sensor values END -----------
     
-     u(k) = KP*e(k); % p-regulator, default value KP=1
-    
-    u(k) = min(max(0, round(u(k))), 255)*(m/100); % limit the signal between 0-255
+    u(k) = KP*e(k);%KP*e(k); % p-regulator, default value KP=1
+    u(k) = min(max(0, round(u(k))), 255);%*(m/100); % limit the signal between 0-255
     disp("signal " + u(k))
     analogWrite(a,u(k),'DAC0');
     
     
     % ------- online-plot START -------
     figure(1)
-    plot(t,y,'k-',t,u,'m:',t,r,'y:');
+    plot(t,y,'k-',t,u,'m:',t,r,'g:');
     xlabel('samplingar (k)');
     if(p == 'a0')
-        title('tank 1, level (h1), signal (u), desired level(r)');
+        title('tank 1, level (y), signal (u), desired level(r)');
     else
-        title('tank 2, level (h2), signal (u), desired level(r)');
+        title('tank 2, level (y), signal (u), desired level(r)');
     end
     disp(y(k));
     legend('y ', 'u ', 'r ');
@@ -89,5 +89,23 @@ end % -for (slut av samplingarna)
 
 % DEL E: avsluta experimentet
 analogWrite(a,0,'DAC0'); % turn pump off
+
+% plot a final picture
+figure(2)
+if(p == 'a0')
+    plot(t,y,'k-',t,u,'m:',t,r,'g:');
+    xlabel('samplingar (k)')
+    ylabel('level (y), signal (u), desired level (r)')
+    title('Tank 1, P-reglering');
+    legend('y ', 'u ', 'r ')
+else
+    plot(t,y,'k-',t,u,'m:',t,r,'g:');
+    xlabel('samplingar (k)')
+    ylabel('level (y), signal (u), desired level (r)')
+    title('Tank 2, P-reglering');
+    legend('y ', 'u ', 'r ')
+end
+
+saveas(figure(2), saveFile);
 
 end

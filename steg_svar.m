@@ -1,7 +1,10 @@
 % Connect to the arduino, change COM-number as neccessary.
 % Need to run the program 2 times for it to start, do not clear variable second start.
+%keepvars = {'a'};
 clear all
 a = arduino_com('COM3');
+%clearvars('-except', keepvars{:});
+
 
 
 p1 = 'a0'; % Tank 1
@@ -9,12 +12,13 @@ p2 = 'a1'; % Tank 2
 
 
 % Constant parameter values
-N = 60*5; % Total samples
+N = 60*7; % Total samples
 dT = 1;   % Sampling time
-v1 = 50;  % desired level, in procent (0-100), for tank 1
-v2 = 50;  % desired level, in procent (0-100), for tank 2
+bv1 = 30;  % desired level, in procent (0-100), for tank 1
+bv2 = 60;  % desired level, in procent (0-100), for tank 2
 OFF = 0;
 ON = 1;
+
 
 
 % values stored in the struct regulator:
@@ -31,13 +35,22 @@ regulator = struct('Type', {'twoStateRegulator', 'multipleStateRegulator',...
 
 
 % Configuration
-tank1 = OFF;
-tank2 = ON;
-saveFileVariables = 'P.1.2.1_stegsvar_undre_vattentank.mat';
-saveFileFigure = 'P.1.2.1_stegsvar_undre_vattentank.jpg';
-regulatorType = regulator(6).Type;
+tank1 = ON;
+tank2 = OFF;
+
+KLTMethod = OFF;
+if(KLTMethod == ON)
+    disp('KLTMethod == ON ---> tank1 = OFF & tank2 = OFF')
+    tank1 = OFF;
+    tank2 = OFF;
+end
+%'.\data\P.1.2.1_stegsvar_undre_vattentank.mat'
+%'.\data\P.1.1.1_stegsvar_ovre_vattentank.mat'
+saveFileVariables = '.\data\P.2.2.2_p-reglering_ovre_vattentank.mat';
+saveFileFigure = '.\bilder\P.2.2.2_p-reglering_ovre_vattentank.jpg';
+regulatorType = regulator(3).Type;
 loop = 1;
-TumregelMetoder = OFF;
+% TumregelMetoder = OFF;
 m = 80; % Control output power of pumpmotor (0% - 100%)
 
 
@@ -46,15 +59,22 @@ while(loop)
     
     if(tank1 == ON)
         disp('Regulating tank 1...')
-        [y,t] = function_regulator(a, N, dT, v2, p1, m, regulatorType, saveFileFigure);
-        save(saveFileVariables, 'y', 't');
+        [y,u,t] = function_regulator(a, N, dT, bv1, p1, m, regulatorType, saveFileFigure);
+        save(saveFileVariables, 'y','u', 't');
     end
     
     if(tank2 == ON)
         disp('Regulating tank 2...')
-        [y,t] = function_regulator(a, N, dT, v1, p2, m, regulatorType, saveFileFigure);
-        save(saveFileVariables, 'y', 't');
+        [y,u,t] = function_regulator(a, N, dT, bv2, p2, m, regulatorType, saveFileFigure);
+        save(saveFileVariables, 'y', 'u', 't');
     end
+    
+    if(KLTMethod == ON)
+        load(saveFileVariables)
+        F131_KLT(a, y, u, t)
+    end
+        
+        
     
     analogWrite(a,0,'DAC0')
     loop = loop - 1;

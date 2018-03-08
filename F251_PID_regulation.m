@@ -1,4 +1,4 @@
-function [y,t] = F251_PID_regulation(a,N,dT,p,bv, K, TI, TD)
+function [y,u,t] = F251_PID_regulation(a,N,dT,p,bv, K, TI, TD)
 
 % ******* DEL A: Beskrivning av de olika variablerna *******
 

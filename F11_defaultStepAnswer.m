@@ -1,4 +1,4 @@
-function [y,t] = F11_defaultStepAnswer(a,N,dT,p,bv)
+function [y,u,t] = F11_defaultStepAnswer(a,N,dT,p,bv,m,saveFile)
 
 % ******* DEL A: Beskrivning av de olika variablerna *******
 
@@ -71,9 +71,9 @@ for k=1:N %slinga kommer att k?ras N-g?ngar, varje g?ng tar exakt Ts-sekunder
     plot(t,y,'k-',t,u,'m:',t,r,'y:');
     xlabel('samplingar (k)');
     if(p == 'a0')
-        title('tank 1, level (h1), signal (u), desired level(r)');
+        title('tank 1, level (y), signal (u), desired level(r)');
     else
-        title('tank 2, level (h2), signal (u), desired level(r)');
+        title('tank 2, level (y), signal (u), desired level(r)');
     end
     disp(y(k));
     legend('y ', 'u ', 'r ');
@@ -87,7 +87,28 @@ for k=1:N %slinga kommer att k?ras N-g?ngar, varje g?ng tar exakt Ts-sekunder
 end % -for (slut av samplingarna)
 
 
+
 % DEL E: avsluta experimentet
 analogWrite(a,0,'DAC0'); % turn pump off
+
+
+% plot a final picture
+figure(2)
+if(p == 'a0')
+    plot(t,y,'k-',t,u,'m:',t,r,'y:');
+    xlabel('samplingar (k)')
+    ylabel('level (y), signal (u), desired level (r)')
+    title('Tank 1, stegsvar');
+    legend('y ', 'u ', 'r ')
+else
+    plot(t,y,'k-',t,u,'m:',t,r,'y:');
+    xlabel('samplingar (k)')
+    ylabel('level (y), signal (u), desired level (r)')
+    title('Tank 2, stegsvar');
+    legend('y ', 'u ', 'r ')
+end
+
+
+saveas(figure(2), saveFile);
 
 end

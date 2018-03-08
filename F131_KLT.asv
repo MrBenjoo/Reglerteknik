@@ -13,9 +13,11 @@ indexStartRegulation = 0;
 N = length(tv);
 
 %Finding the index where the regulation starts showing effect
-for k=2:N-1
-   if(y(k)*1.04 < y(k+1)) % Motsvarar L (d?dtid)
+baselineValue = sum(y(1:10))/10;
+for k=2:N
+   if(y(k+1)-y(k) > baselineValue*5/100) % Motsvarar L (d?dtid)
        indexOfChange = k;
+       break;
    end
 end
 

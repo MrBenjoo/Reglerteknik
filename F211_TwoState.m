@@ -1,4 +1,4 @@
-function [y,t] = F211_TwoState(a,N,dT,p,bv, u)
+function [y,u,t] = F211_TwoState(a,N,dT,p,m,bv,saveFile)
 
 % ******* DEL A: Beskrivning av de olika variablerna *******
 
@@ -72,7 +72,7 @@ for k=1:N %slinga kommer att k?ras N-g?ngar, varje g?ng tar exakt Ts-sekunder
     
     % ------- online-plot START -------
     figure(1)
-    plot(t,y,'k-',t,u,'m:',t,r,'y:');
+    plot(t,y,'k-',t,u,'m:',t,r,'g:');
     xlabel('samplingar (k)');
     if(p == 'a0')
         title('tank 1, level (h1), signal (u), desired level(r)');
@@ -93,5 +93,26 @@ end % -for (slut av samplingarna)
 
 % DEL E: avsluta experimentet
 analogWrite(a,0,'DAC0'); % turn pump off
+
+
+   
+% plot a final picture
+figure(2)
+if(p == 'a0')
+    plot(t,y,'k-',t,u,'m:',t,r,'g:');
+    xlabel('samplingar (k)')
+    ylabel('level (y), signal (u), desired level (r)')
+    title('Tank 1, stegsvar');
+    legend('y ', 'u ', 'r ')
+else
+    plot(t,y,'k-',t,u,'m:',t,r,'g:');
+    xlabel('samplingar (k)')
+    ylabel('level (y), signal (u), desired level (r)')
+    title('Tank 2, stegsvar');
+    legend('y ', 'u ', 'r ')
+end
+
+
+saveas(figure(2), saveFile);
 
 end

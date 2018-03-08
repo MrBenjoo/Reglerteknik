@@ -1,4 +1,4 @@
-function [y,t] = F241_PI_regulation(a,N,dT,p,bv, K, TI)
+function [y,u,t] = F241_PI_regulation(a,N,dT,p,bv, K, TI)
 
 % ******* DEL A: Beskrivning av de olika variablerna *******
 

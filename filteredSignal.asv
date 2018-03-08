@@ -1,4 +1,4 @@
-load ('.\data\P.1.1.1_stegsvar_ovre_vattentank.mat')
+load ('.\data\P.1.2.1_stegsvar_undre_vattentank.mat')
 
 windowSize = 5;
 
@@ -9,13 +9,13 @@ a = 1;
 y = filter(b,a,y);
 
 saveNameMat = '.\data\P.1.1.1_filtreread_stegsvar_ovre_vattentank.mat';
-saveNameJPG = '.\bilder\P.1.1.1_filtreread_stegsvar_ovre_vattentank.jpg';
+saveNameJPG = '.\bilder\P.1.1.1_filtreread_stegsvar_o_vattentank.jpg';
 
   figure(3)
   plot(t,y,'k-');
   xlabel('samples k') ;
   ylabel('y');
-  title('Tank 1, filtrerat stegsvar') ;
+  title('Tank 2, filtrerat stegsvar') ;
   legend('y');
   hold('off');
   
