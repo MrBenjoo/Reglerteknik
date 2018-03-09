@@ -36,7 +36,7 @@ ok=0;             % used to detect too short sampling time
 % *************************************************************************************
 
 
-windupActivated = false;
+windup = false;
 
 % ******* PART D: start regulating *******
 for k=1:N % the loop will run N times, each time takes exactly dT seconds
@@ -60,22 +60,22 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     % --------------- update control signal and write to DAC0 ---------------
     if k>1 % we can not assume a value that does not exist yet
-        if(windupActivated)
-            u(k) = K*(e(k) + TD*(e(k)-e(k-1))/Ts);
+        if(windup)
+            u(k) = K * (e(k) + TD * (e(k)-e(k-1))/dT);
         else
-            u(k) = K*(e(k) + Ts/TI*sum(e)+TD*(e(k)-e(k-1))/Ts);
+            u(k) = K * (e(k) + dT/TI * sum(e) + TD * (e(k)-e(k-1))/dT);
         end
     end
     
     if(u(k) < 180)
-        windupActivated = true;
+        windup = true;
     end
     
     if(y > (H1Max - 10))
-        windupActivated = true;
+        windup = true;
     end
     
-    u(k) = min(max(0, round(u(k))), 255)*(m/100); % limit the signal between 0-255
+    u(k) = min(max(0, round(u(k))), 255); % limit the signal between 0-255
     disp("signal " + u(k))
     analogWrite(a,u(k),'DAC0');
     % -----------------------------------------------------------------------
@@ -86,9 +86,9 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     plot(t,y,'k-',t,u,'m:',t,r,'g:');
     xlabel('samplingar (k)');
     if(p == 'a0')
-        title('tank 1, level (y), signal (u), desired level(r)');
+        title('tank 1 anti-windup, level (y), signal (u), desired level(r)');
     else
-        title('tank 2, level (y), signal (u), desired level(r)');
+        title('tank 2 anti-windup, level (y), signal (u), desired level(r)');
     end
     disp(y(k));
     legend('y ', 'u ', 'r ');
