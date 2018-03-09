@@ -50,16 +50,16 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     % ---------------- Read sensor values --------------
     y(k)= a.analogRead(p); % measure water level in tank 1 or 2 depending on variable p
-    e(k)=r(k)-y(k); % calculate the error (desired level - actual level)
+    e(k)= r(k)-y(k); % calculate the error (desired level - actual level)
     % --------------------------------------------------
     
     
     % --------------- update control signal and write to DAC0 ---------------
     if k>1 % we can not assume a value that does not exist yet
-        u(k) = K*(e(k) + dT/TI*sum(e));
+        u(k) = K * (e(k) + dT/TI * sum(e));
     end
     
-    u(k) = min(max(0, round(u(k))), 255)*(m/100); % limit the signal between 0-255
+    u(k) = min(max(0, round(u(k))), 255); % limit the signal between 0-255
     disp("signal " + u(k))
     analogWrite(a,u(k),'DAC0');
     % -----------------------------------------------------------------------

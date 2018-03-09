@@ -3,15 +3,15 @@
 
 %keepvars = {'a'};
 clear all
-a = arduino_com('COM7');
+a = arduino_com('COM3');
 %clearvars('-except', keepvars{:});
 
 
 % Constant parameter values
-N = 60*7;  % total samples
-dT = 1;    % sampling time
-bv1 = 30;  % desired level, in procent (0-100), for tank 1
-bv2 = 60;  % desired level, in procent (0-100), for tank 2
+N = 60*4;  % total samples
+dT = 1;     % sampling time
+bv1 = 60;   % desired level, in procent (0-100), for tank 1
+bv2 = 30;   % desired level, in procent (0-100), for tank 2
 OFF = 0;
 ON = 1;
 p1 = 'a0'; % tank 1
@@ -30,21 +30,23 @@ regulator = struct('Type', {'twoStateRegulator',...
 
 
 % Configuration
-tank1 = ON;
-tank2 = OFF;
-KLTMethod = ON;
+tank1 = OFF;
+tank2 = ON;
+KLTMethod = OFF;
+tumRegelMetoder = ON;
 
 if(KLTMethod == ON)
-    disp('KLTMethod == ON ---> tank1 = OFF & tank2 = OFF')
+    disp('KLTMethod == ON ---> tank1 = OFF & tank2 = OFF & tumRegelMetoder = OFF')
     tank1 = OFF;
     tank2 = OFF;
+    tumRegelMetoder = OFF;
 end
 
 regulatorType = regulator(2).Type;
-saveFileVariables = '.\data\P.1.1.1_filtreread_stegsvar_ovre_vattentank.mat';
-saveFileFigure = '.\bilder\P.2.2.2_p-reglering_ovre_vattentank.jpg';
+saveFileVariables = '.\data\P.3.1.1.b_ziegler-nichols_undre_vattentank.mat';
+saveFileFigure = '.\bilder\P.3.1.1.b_ziegler-nichols_undre_vattentank.jpg';
 loop = 1;
-m = 80; % control output power of pumpmotor (0% - 100%)
+m = 100; % control output power of pumpmotor (0% - 100%)
 
 
 % start regulating the tanks...
@@ -58,16 +60,22 @@ while(loop)
     
     if(tank2 == ON)
         disp('Regulating tank 2...')
-        [y,u,t] = function_regulator(a, N, dT, bv2, p2, m, regulatorType, saveFileFigure);
+        
+        if(tumRegelMetoder == ON)
+            [y,u,t] = P311_ziegler_nichols(a,N,dT,p2,bv2,1,10^40,0,saveFileFigure);
+        else
+            [y,u,t] = function_regulator(a, N, dT, bv2, p2, m, regulatorType, saveFileFigure);
+        end
+        
         save(saveFileVariables,'y','u','t');
     end
     
     if(KLTMethod == ON)
         load(saveFileVariables)
         F131_KLT(a, y, u, t)
+        
+        analogWrite(a,0,'DAC0')
+        loop = loop - 1;
     end
-    
-    analogWrite(a,0,'DAC0')
-    loop = loop - 1;
     
 end
