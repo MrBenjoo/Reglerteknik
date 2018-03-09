@@ -10,7 +10,6 @@ function [y,u,t] = F251_PID_regulation(a,N,dT,p,bv,K,TI,TD,saveFile)
 %       - N:    total samples
 %       - dT:   samplingtime in seconds
 %       - p:    inputsignal (tank1 or tank2)
-%       - m:    signal strength (0-255) given in procent (0..100%)
 %       - bv:   desired level for the regulation given in procent (0..100%)
 %       - K:    ...
 %       - TI:   ...
@@ -48,7 +47,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     end
     
     
-    t(k)=k*dT; % update timevector
+    t(k) = k*dT; % update timevector
     
     
     % ---------------- Read sensor values --------------
@@ -59,11 +58,11 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     % --------------- update control signal and write to DAC0 ---------------
     if k>1 % we can not assume a value that does not exist yet
-        u(k) = K*(e(k) + Ts/TI*sum(e)+TD*(e(k)-e(k-1))/Ts);
+        u(k) = K * (e(k) + dT/TI * sum(e) + TD * (e(k)-e(k-1))/dT);
     end
     
-    u(k) = min(max(0, round(u(k))), 255)*(m/100); % limit the signal between 0-255
-    disp("signal " + u(k))
+    u(k) = min(max(0, round(u(k))), 255); % limit the signal between 0-255
+    disp("signal u(k) = " + u(k))
     analogWrite(a,u(k),'DAC0');
     % -----------------------------------------------------------------------
     
@@ -73,9 +72,9 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     plot(t,y,'k-',t,u,'m:',t,r,'g:');
     xlabel('samplingar (k)');
     if(p == 'a0')
-        title('tank 1, level (y), signal (u), desired level(r)');
+        title('tank 1 PID, level (y), signal (u), desired level(r)');
     else
-        title('tank 2, level (y), signal (u), desired level(r)');
+        title('tank 2 PID, level (y), signal (u), desired level(r)');
     end
     disp(y(k));
     legend('y ', 'u ', 'r ');
