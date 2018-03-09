@@ -1,6 +1,17 @@
 function [fv] = F513_kvarstaendefel(y,tv,bv)
 
-fv = mean(h2(length(h1)-15:length(h2))) - bv; % ta medelv?rde av sista 16 samples minus b?rv?rde
+% ***************************************************************
+%   output values:
+%       - fv: residual error (kvarstående fel)
+%   argument values:
+%       - y:    vector with with measurements of the level in the tank
+%       - tv:   vector containing 't' samples (timepoints)
+%       - bv:   desired level
+% ***************************************************************
+
+fv = mean( y( length(y) - 5:length(y) ) ) - bv; % take mean value of the last 5 samples - the desired level
+
+disp("Kvarstående fel är: " + fv)
 
 end
 
