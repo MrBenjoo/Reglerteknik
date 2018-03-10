@@ -1,10 +1,10 @@
 % Connect to the arduino, change COM-number as neccessary.
 % Need to run the program 2 times for it to start, do not clear variable second start.
 
-%keepvars = {'a'};
-clear all
-a = arduino_com('COM9');
-%clearvars('-except', keepvars{:});
+keepvars = {'a'};
+%clear all
+%a = arduino_com('COM9');
+clearvars('-except', keepvars{:});
 
 
 % Constant parameter values
@@ -44,8 +44,8 @@ end
 
 
 regulatorType = regulator(4).Type;
-saveFileVariables = '.\data\P.3.1.1.b_zieger-nichols_k5_pid_undre_vattentank.mat';
-saveFileFigure = '.\bilder\P.3.1.1.b_zieger-nichols_k5_pid_undre_vattentank.jpg';
+saveFileVariables = '.\data\P.3.1.1.b_zieger-nichols_k5_pid_nedre_vattentank.mat';
+saveFileFigure = '.\bilder\P.3.1.1.b_zieger-nichols_k5_pid_nedre_vattentank.jpg';
 loop = 1;
 m = 100; % control output power of pumpmotor (0% - 100%)
 
