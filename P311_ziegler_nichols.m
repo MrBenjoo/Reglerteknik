@@ -58,10 +58,10 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     
     % --------------- update control signal and write to DAC0 ---------------
-    if(mod(k, 300) == 0)
-        K = K * 2;
-        disp("changing K to: " + K)
-    end
+    %if(mod(k, 300) == 0)
+     %   K = K * 2;
+      %  disp("changing K to: " + K)
+    %end
     
     if k>1 % we can not assume a value that does not exist yet
         u(k) = K * ( e(k) + dT/TI * sum(e) + TD * (e(k)-e(k-1))/dT );
@@ -96,6 +96,9 @@ end % -for (end of the samples)
 
 % PART E: end experiment
 analogWrite(a,0,'DAC0'); % turn pump off
+
+
+
 
 
 % plot a final picture

@@ -14,4 +14,3 @@ fv = mean( y( length(y) - 5:length(y) ) ) - bv; % take mean value of the last 5 
 disp("Kvarstående fel är: " + fv)
 
 end
-
