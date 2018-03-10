@@ -8,7 +8,7 @@ switch(regulatorType)
     case 'pi_regulator'
         [y,u,t] = F241_PI_regulation(a,N,dT,p,bv,0.8,4,saveFile);
     case 'pid_regulator'%argument -> (a,N,dT,p,bv,K,TI,TD,saveFile)
-        [y,u,t] = F251_PID_regulation(a,N,dT,p,bv,K,10^30,0,saveFile); 
+        [y,u,t] = F251_PID_regulation(a,N,dT,p,bv,K,10^30,0,saveFile);
     case 'defaultStepAnswer'
         [y,u,t] = F11_defaultStepAnswer(a,N,dT,p,bv,m,saveFile);
 end

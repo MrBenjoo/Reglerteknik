@@ -1,4 +1,4 @@
-function [y,u,t,K] = P311_ziegler_nichols(a,N,dT,p,bv,K,TI,TD,saveFile)
+function [y,u,t] = P311_ziegler_nichols(a,N,dT,p,bv,K,TI,TD,saveFile)
 
 % ******* PART A: Description of the different variables *******
 %   output values:
