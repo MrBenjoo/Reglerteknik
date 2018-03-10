@@ -20,7 +20,7 @@ N = length(tv);
 % system static gain is the final value of the step response because the stepvalue is constant.
 % the last 10 values ??are read and based on these, the average is calculated.
 latestValues = y(find(y,10,'last'));
-K = mean(latestValues)
+K = mean(latestValues)/u
 % ---------------------------------------------
 
 
