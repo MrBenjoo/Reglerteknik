@@ -87,12 +87,12 @@ while(loop)
     end
     
     if(timeCalculations == ON)
-        load(loadFileVariables) %loads filtered default stepanswer for the tanks
+        load(loadFileVariables) %loads regulating
         disp('File loaded............')
         disp(loadFileVariables)
-       [stigtid] = F511_stigtid(y,N,bv,dT)
-       [insvtid] = F512_insvangningstid(y,N,bv,dT) 
-        
+       [stigtid] = F511_stigtid(y,N,bv,dT);
+       [insvtid] = F512_insvangningstid(y,N,bv,dT);
+       [fv] = F513_kvarstaendefel(y,N,bv);
     end
     
     analogWrite(a,0,'DAC0')

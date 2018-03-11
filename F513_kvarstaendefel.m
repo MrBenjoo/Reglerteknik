@@ -1,5 +1,7 @@
 function [fv] = F513_kvarstaendefel(y,tv,bv)
-
+disp('*************************************')
+disp('*** Function: F513_kvarstaendefel ***')
+disp('*************************************')
 % ***************************************************************
 %   output values:
 %       - fv: residual error (kvarstående fel)
@@ -9,7 +11,7 @@ function [fv] = F513_kvarstaendefel(y,tv,bv)
 %       - bv:   desired level
 % ***************************************************************
 
-fv = mean( y( length(y) - 5:length(y) ) ) - bv; % take mean value of the last 5 samples - the desired level
+fv = mean( y( (length(y) - 5):length(y) ) ) - bv; % take mean value of the last 5 samples - the desired level
 
 disp("Kvarstående fel är: " + fv)
 
