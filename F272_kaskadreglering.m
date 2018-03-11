@@ -1,4 +1,4 @@
-function [y,t] = F261_PID_antiWindup(a,N,dT,bv,K1,TI1,TD1,K2,TI2,TD2,R)
+function [y,t] = F261_PID_antiWindup(a,N,dT,bv,K1,TI1,TD1,K2,TI2,TD2,R, saveFile)
 
 % ******* PART A: Description of the different variables *******
 %   output values:
@@ -60,14 +60,14 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     if(mod(k-1, R) == 0)
         analogWrite(a,u1(k),'DAC0');
         % in till R1 yttre kretsen, undre vattentanken
-        y1(k) = a.analogRead(1);
+        y1(k) = a.analogRead(1); %läser av undre vattentanken
         
         e1(k) = r(k)-y1(k);
         u1(k) = K1*(e1(k) + dT/TI1*sum(e)+TD1*(e1(k)-e(k-1))/dT);
     end
     
     % in till R2 inre kretsen, ?vre vattentanken
-    y2(k) = a.analogRead(0);
+    y2(k) = a.analogRead(0); %läser av ovre vattentanken
     
     e2(k) = u1(k)-y2(k);
     u2(k) = K2*(e2(k) + dT/TI2*sum(e)+TD2*(e2(k)-e2(k-1))/dT);
@@ -102,8 +102,28 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
 end % -for (end of the samples)
 
-
 % PART E: end experiment
 analogWrite(a,0,'DAC0'); % turn pump off
+
+
+% plot a final picture
+figure(2)
+if(p == 'a0')
+    plot(t,y,'k-',t,u,'m:',t,r,'b');
+    xlabel('samples (k)')
+    ylabel('level (y), signal (u), desired level (r)')
+    title('Tank 1, PID regulation');
+    legend('y ', 'u ', 'r ')
+else
+    plot(t,y,'k-',t,u,'m:',t,r,'b');
+    xlabel('samples (k)')
+    ylabel('level (y), signal (u), desired level (r)')
+    title('Tank 2, PID regulation');
+    legend('y ', 'u ', 'r ')
+end
+
+
+saveas(figure(2), saveFile);
+
 
 end

@@ -23,7 +23,7 @@ H2Max=745; % Max level-value for tank 2
 
 % ******* PART B: Initialization of inputs and outputs and internal variables *******
 % Calculate desired-level in absolute numbers
-r=(bv*H1Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
+r=(bv*H2Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
 % *******************************************************************************
 
 
@@ -60,7 +60,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     if k>1 % we can not assume a value that does not exist yet
         u(k) = K * (e(k) + dT/TI * sum(e) + TD * (e(k)-e(k-1))/dT);
     end
-    
+    disp("signal u(k) = " + u(k))
     u(k) = min(max(0, round(u(k))), 255); % limit the signal between 0-255
     disp("signal u(k) = " + u(k))
     analogWrite(a,u(k),'DAC0');
@@ -69,7 +69,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     % ------- online-plot START -------
     figure(1)
-    plot(t,y,'k-',t,u,'m:',t,r,'g:');
+    plot(t,y,'k-',t,u,'m:',t,r,'b');
     xlabel('samplingar (k)');
     if(p == 'a0')
         title('tank 1 PID, level (y), signal (u), desired level(r)');
@@ -95,13 +95,13 @@ analogWrite(a,0,'DAC0'); % turn pump off
 % plot a final picture
 figure(2)
 if(p == 'a0')
-    plot(t,y,'k-',t,u,'m:',t,r,'g:');
+    plot(t,y,'k-',t,u,'m:',t,r,'b');
     xlabel('samples (k)')
     ylabel('level (y), signal (u), desired level (r)')
     title('Tank 1, PID regulation');
     legend('y ', 'u ', 'r ')
 else
-    plot(t,y,'k-',t,u,'m:',t,r,'g:');
+    plot(t,y,'k-',t,u,'m:',t,r,'b');
     xlabel('samples (k)')
     ylabel('level (y), signal (u), desired level (r)')
     title('Tank 2, PID regulation');

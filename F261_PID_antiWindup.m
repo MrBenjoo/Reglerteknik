@@ -1,4 +1,4 @@
-function [y,t] = F261_PID_antiWindup(a,N,dT,p,bv,K,TI,TD)
+function [y,u,t] = F261_PID_antiWindup(a,N,dT,p,bv,K,TI,TD, saveFile)
 
 % ******* PART A: Description of the different variables *******
 %   output values:
@@ -67,14 +67,16 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
         end
     end
     
-    if(u(k) < 180)
+    if(u(k) > 255 || u(k) < 0)
         windup = true;
+    elseif(a.analogRead('a0') > (H1Max - 10))
+       windup = true;
+    else
+        windup = false;
     end
-    
-    if(y > (H1Max - 10))
-        windup = true;
-    end
-    
+   
+    disp(windup);
+    disp("signal " + u(k))
     u(k) = min(max(0, round(u(k))), 255); % limit the signal between 0-255
     disp("signal " + u(k))
     analogWrite(a,u(k),'DAC0');
@@ -83,7 +85,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     % ------- online-plot START -------
     figure(1)
-    plot(t,y,'k-',t,u,'m:',t,r,'g:');
+    plot(t,y,'k-',t,u,'m:',t,r,'b');
     xlabel('samplingar (k)');
     if(p == 'a0')
         title('tank 1 anti-windup, level (y), signal (u), desired level(r)');
@@ -104,6 +106,26 @@ end % -for (end of the samples)
 
 % PART E: end experiment
 analogWrite(a,0,'DAC0'); % turn pump off
+
+
+% plot a final picture
+figure(2)
+if(p == 'a0')
+    plot(t,y,'k-',t,u,'m:',t,r,'b');
+    xlabel('samples (k)')
+    ylabel('level (y), signal (u), desired level (r)')
+    title('Tank 1, PID regulation Anti-Windup');
+    legend('y ', 'u ', 'r ')
+else
+    plot(t,y,'k-',t,u,'m:',t,r,'b');
+    xlabel('samples (k)')
+    ylabel('level (y), signal (u), desired level (r)')
+    title('Tank 2, PID regulation Anti-Windup');
+    legend('y ', 'u ', 'r ')
+end
+
+
+saveas(figure(2), saveFile);
 
 
 end

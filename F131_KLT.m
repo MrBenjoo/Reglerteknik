@@ -46,10 +46,10 @@ L = indexOfChange
 % --------------- FIND 'T' PARAMETER ---------------
 % highest value stored at index M
 % I = position of the highest value M.
-[M,I] = max(y);
 
-M63 = M*0.63; %antal samplingar
-T = M63 - L %antal sekunder
+I = min(find(y > max(y*0.63)));
+
+T = I - L %antal sekunder
 % ---------------------------------------------
 
 end
