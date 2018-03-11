@@ -33,9 +33,9 @@ regulator = struct('Type', {'twoStateRegulator',...
 bv = bv1;
 tank1 = OFF;
 tank2 = OFF;
-KLTMethod = OFF;
+KLTMethod = ON;
 tumRegelMetoder = OFF;
-timeCalculations = ON;
+timeCalculations = OFF;
 
 
 if(KLTMethod == ON)
@@ -81,11 +81,9 @@ while(loop)
         disp(loadFileVariables)
         [K,L,T] = F131_KLT(1, y, u, t);
         amigo
-        keepvars = {'a', 'K', 'L', 'T', 'u', 'y', 't'};
-        clearvars('-except', keepvars{:});
         lambda
     end
-    
+       
     if(timeCalculations == ON)
         load(loadFileVariables) %loads regulating
         disp('File loaded............')
