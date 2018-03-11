@@ -3,7 +3,7 @@
 
 keepvars = {'a', 'K', 'L', 'T', 'u', 'y', 't'};
 %clear all
-a = arduino_com('COM9');
+a = 1%arduino_com('COM9');
 clearvars('-except', keepvars{:});
 
 % Constant parameter values
@@ -30,10 +30,13 @@ regulator = struct('Type', {'twoStateRegulator',...
 
 
 % Configuration
+bv = bv1;
 tank1 = OFF;
-tank2 = ON;
-KLTMethod = ON;
-tumRegelMetoder = ON;
+tank2 = OFF;
+KLTMethod = OFF;
+tumRegelMetoder = OFF;
+timeCalculations = ON;
+
 
 if(KLTMethod == ON)
     disp('KLTMethod == ON ---> tank1 = OFF & tank2 = OFF & tumRegelMetoder = OFF')
@@ -74,13 +77,22 @@ while(loop)
     
     if(KLTMethod == ON)
         load(loadFileVariables) %loads filtered default stepanswer for the tanks
-        disp('File loaded......')
+        disp('File loaded............')
         disp(loadFileVariables)
         [K,L,T] = F131_KLT(1, y, u, t);
         amigo
         keepvars = {'a', 'K', 'L', 'T', 'u', 'y', 't'};
         clearvars('-except', keepvars{:});
         lambda
+    end
+    
+    if(timeCalculations == ON)
+        load(loadFileVariables) %loads filtered default stepanswer for the tanks
+        disp('File loaded............')
+        disp(loadFileVariables)
+       [stigtid] = F511_stigtid(y,N,bv,dT)
+       [insvtid] = F512_insvangningstid(y,N,bv,dT) 
+        
     end
     
     analogWrite(a,0,'DAC0')

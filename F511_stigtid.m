@@ -1,5 +1,7 @@
 function [stigtid] = F511_stigtid(y,tv,bv,dT)
-
+disp('******************************')
+disp('*** Function: F511_stigtid ***')
+disp('******************************')
 % ***************************************************************
 %   output values:
 %       - stigtid: the time it takes for the level to go from 10% to 90%
