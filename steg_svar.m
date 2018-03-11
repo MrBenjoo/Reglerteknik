@@ -1,11 +1,10 @@
 % Connect to the arduino, change COM-number as neccessary.
 % Need to run the program 2 times for it to start, do not clear variable second start.
 
-keepvars = {'a'};
+keepvars = {'a', 'K', 'L', 'T', 'u', 'y', 't'};
 %clear all
-%a = arduino_com('COM9');
+a = arduino_com('COM9');
 clearvars('-except', keepvars{:});
-
 
 % Constant parameter values
 N = 60*4;  % total samples
@@ -16,6 +15,7 @@ OFF = 0;
 ON = 1;
 p1 = 'a0'; % tank 1
 p2 = 'a1'; % tank 2
+m = 100; % control output power of pumpmotor (0% - 100%)
 
 
 % values stored in the struct regulator:
@@ -32,7 +32,7 @@ regulator = struct('Type', {'twoStateRegulator',...
 % Configuration
 tank1 = OFF;
 tank2 = ON;
-KLTMethod = OFF;
+KLTMethod = ON;
 tumRegelMetoder = ON;
 
 if(KLTMethod == ON)
@@ -46,10 +46,10 @@ end
 regulatorType = regulator(4).Type;
 saveFileVariables = '.\data\zieger-nichols\P.3.1.1.c_zieger-nichols_K0.8_pid_nedre_vattentank.mat';
 saveFileFigure = '.\bilder\zieger-nichols\P.3.1.1.c_zieger-nichols_K0.8_pid_nedre_vattentank.jpg';
+
+loadFileVariables = '.\data\P.1.1.1_filtreread_stegsvar_ovre_vattentank.mat';
+
 loop = 1;
-m = 100; % control output power of pumpmotor (0% - 100%)
-
-
 % start regulating the tanks...
 while(loop)
     
@@ -73,11 +73,16 @@ while(loop)
     end
     
     if(KLTMethod == ON)
-        load(saveFileVariables)
-        [K,L,T] = F131_KLT(a, y, u, t);
+        load(loadFileVariables) %loads filtered default stepanswer for the tanks
+        disp('File loaded......')
+        disp(loadFileVariables)
+        [K,L,T] = F131_KLT(1, y, u, t);
+        amigo
+        keepvars = {'a', 'K', 'L', 'T', 'u', 'y', 't'};
+        clearvars('-except', keepvars{:});
+        lambda
     end
     
     analogWrite(a,0,'DAC0')
     loop = loop - 1;
-    
 end

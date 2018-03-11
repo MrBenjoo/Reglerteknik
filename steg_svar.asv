@@ -1,9 +1,9 @@
 % Connect to the arduino, change COM-number as neccessary.
 % Need to run the program 2 times for it to start, do not clear variable second start.
 
-keepvars = {'a'};
+keepvars = {'a', 'K', 'L', 'T', 'u', 'y', 't'};
 %clear all
-%a = arduino_com('COM9');
+a = 1%arduino_com('COM9');
 clearvars('-except', keepvars{:});
 
 
@@ -32,7 +32,7 @@ regulator = struct('Type', {'twoStateRegulator',...
 % Configuration
 tank1 = OFF;
 tank2 = ON;
-KLTMethod = OFF;
+KLTMethod = ON;
 tumRegelMetoder = ON;
 
 if(KLTMethod == ON)
@@ -44,8 +44,9 @@ end
 
 
 regulatorType = regulator(4).Type;
-saveFileVariables = '.\data\zieger-nichols\P.3.1.1.b_zieger-nichols_k3_pid_nedre_vattentank.mat';
-saveFileFigure = '.\bilder\zieger-nichols\P.3.1.1.b_zieger-nichols_k3_pid_nedre_vattentank.jpg';
+saveFileVariables = '.\data\zieger-nichols\P.3.1.1.c_zieger-nichols_K0.8_pid_nedre_vattentank.mat';
+saveFileFigure = '.\bilder\zieger-nichols\P.3.1.1.c_zieger-nichols_K0.8_pid_nedre_vattentank.jpg';
+loadFileVariables = '.\data\P.1.2.1_filtreread_stegsvar_undre_vattentank.mat';
 loop = 1;
 m = 100; % control output power of pumpmotor (0% - 100%)
 
@@ -62,17 +63,23 @@ while(loop)
     if(tank2 == ON)
         disp('Regulating tank 2...')
         if(tumRegelMetoder == ON) %
-            [y,u,t] = P311_ziegler_nichols(a,N,dT,p2,bv2,5,10^40,0,saveFileFigure);
+            [y,u,t,K] = P311_ziegler_nichols(a,N,dT,p2,bv2,10*0.8,10^40,0,saveFileFigure);
+            save(saveFileVariables,'y','u','t','K');
         else
             [y,u,t] = function_regulator(a, N, dT, bv2, p2, m, regulatorType, saveFileFigure);
+            save(saveFileVariables,'y','u','t');
         end
         
-        save(saveFileVariables,'y','u','t');
+        
     end
     
     if(KLTMethod == ON)
-        load(saveFileVariables)
-        F131_KLT(a, y, u, t)
+        load(loFileVariables)
+        [K,L,T] = F131_KLT(a, y, u, t);
+        amigo
+        keepvars = {'a', 'K', 'L', 'T', 'u', 'y', 't'};
+        clearvars('-except', keepvars{:});
+        lambda
     end
     
     analogWrite(a,0,'DAC0')
