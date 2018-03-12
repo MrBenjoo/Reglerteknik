@@ -6,9 +6,9 @@
 
 %a = arduino_com('COM3');
 
-P421_toggler = 'R1_PID_aw_40percent_zn';
+P421_toggler = 'R2_PID_aw_40percent_lambdaT';
 saveFileVariables = '.\data\temp.mat';
-saveFileFigure = '.\bilder\P4.2.x\R1_PID_aw_40percent_zn.jpg';
+saveFileFigure = '.\bilder\P4.2.x\R2_PID_aw_40percent_lambdaT.jpg';
 %Used only if timeCalculations = ON or KLTMethod = ON
 loadFileVariables = '.\data\P.1.2.1_filtreread_stegsvar_undre_vattentank.mat';
 
@@ -23,9 +23,9 @@ ON = 1;
 p1 = 'a0'; % tank 1
 p2 = 'a1'; % tank 2
 m = 100; % control output power of pumpmotor (0% - 100%)
-K = 6.0;
-TI = 44.50;
-TD = 11.13;
+K = 0.42;
+TI = 135;
+TD = 1.97;
 
 % Configuration
 tank1 = OFF;
