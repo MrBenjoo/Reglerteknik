@@ -19,11 +19,13 @@ H2Max=745; % Max level-value for tank 2
 y10 = (bv * H2Max * 0.1)/100;
 y90 = (bv * H2Max * 0.9 )/100;
 
-index10 = min(find( ( y>= y10 ) ));
-index90 = min(find( ( y>= y90 ) ));
+passedBorvarde = false
+if(pas
+interval = find( ( y >= y10 ) & ( y <= y90 ) );
 
 % get the indicies in the format of 1,2,3,4,5.... and then multiple with dT to get time it takes to go from 10% to 90%
-stigtid = ( index90 - index10 ) * dT;
+stigtid = ( max(interval) - min(interval) ) * dT;
+
 
 disp("Stigtiden är: " + stigtid)
 
