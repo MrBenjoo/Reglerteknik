@@ -11,7 +11,10 @@ disp('*************************************')
 %       - bv:   desired level
 % ***************************************************************
 
-fv = mean( y( (length(y) - 5):length(y) ) ) - bv; % take mean value of the last 5 samples - the desired level
+H1Max=740; % Max level-value for tank 1
+H2Max=745; % Max level-value for tank 2
+
+fv = (mean( y( (length(y) - 5):length(y) ) ))- H2Max*bv/100; % take mean value of the last 5 samples - the desired level
 
 disp("Kvarstående fel är: " + fv)
 
