@@ -6,26 +6,26 @@
 
 %a = arduino_com('COM3');
 
-P421_toggler = 'R4_aw';
+P421_toggler = 'R1_PID_aw_40percent_zn';
 saveFileVariables = '.\data\temp.mat';
-saveFileFigure = '.\bilder\P4.2.x\R4_PID_aw.jpg';
+saveFileFigure = '.\bilder\P4.2.x\R1_PID_aw_40percent_zn.jpg';
 %Used only if timeCalculations = ON or KLTMethod = ON
 loadFileVariables = '.\data\P.1.2.1_filtreread_stegsvar_undre_vattentank.mat';
 
 % Constant parameter values
 N = 60*7;  % total samples
 dT = 2;     % sampling time
-bv1 = 60;   % desired level, in procent (0-100), for tank 1
-bv2 = 60;   % desired level, in procent (0-100), for tank 2
+bv1 = 40;   % desired level, in procent (0-100), for tank 1
+bv2 = 40;   % desired level, in procent (0-100), for tank 2
 bv = bv2;
 OFF = 0;
 ON = 1;
 p1 = 'a0'; % tank 1
 p2 = 'a1'; % tank 2
 m = 100; % control output power of pumpmotor (0% - 100%)
-K = 6.30;
-TI = 24.97;
-TD = 1.98;
+K = 6.0;
+TI = 44.50;
+TD = 11.13;
 
 % Configuration
 tank1 = OFF;
@@ -152,6 +152,66 @@ if(tank2 == ON)
         R4_t_aw = t;
         R4_plot = saveFileFigure;
     end
+    
+    if(strcmp(P421_toggler,'R1_PID_40percent_zn'))
+        %R1 output
+        R1_y_40percent = y;
+        R1_u_40percent  = u;
+        R1_t_40percent  = t;
+        R1_plot_40percent  = saveFileFigure;
+        
+    elseif(strcmp(P421_toggler,'R2_PID_40percent_lambdaT'))
+        %R2 output
+        R2_y_40percent   = y;
+        R2_u_40percent   = u;
+        R2_t_40percent   = t;
+        R2_plot_40percent  = saveFileFigure;
+        
+    elseif(strcmp(P421_toggler,'R3_PID_40percent_lambda2T'))
+        %R3 output
+        R3_y_40percent = y;
+        R3_u_40percent = u;
+        R3_t_40percent = t;
+        R3_plot_40percent    = saveFileFigure;
+        
+    elseif(strcmp(P421_toggler,'R4_PID_40percent_amigo'))
+        %R4 output
+        R4_y_40percent = y;
+        R4_u_40percent = u;
+        R4_t_40percent = t;
+        R4_plot_40percent = saveFileFigure;
+    end
+    
+    
+    if(strcmp(P421_toggler,'R1_PID_aw_40percent_zn'))
+        %R1 output
+        R1_y_aw_40percent = y;
+        R1_u_aw_40percent  = u;
+        R1_t_aw_40percent  = t;
+        R1_plot_aw_40percent  = saveFileFigure;
+        
+    elseif(strcmp(P421_toggler,'R2_PID_aw_40percent_lambdaT'))
+        %R2 output
+        R2_y_aw_40percent   = y;
+        R2_u_aw_40percent   = u;
+        R2_t_aw_40percent   = t;
+        R2_plot_aw_40percent  = saveFileFigure;
+        
+    elseif(strcmp(P421_toggler,'R3_PID_aw_40percent_lambda2T'))
+        %R3 output
+        R3_y_aw_40percent = y;
+        R3_u_aw_40percent = u;
+        R3_t_aw_40percent = t;
+        R3_plot_aw_40percent    = saveFileFigure;
+        
+    elseif(strcmp(P421_toggler,'R4_PID_aw_40percent_amigo'))
+        %R4 output
+        R4_y_aw_40percent = y;
+        R4_u_aw_40percent = u;
+        R4_t_aw_40percent = t;
+        R4_plot_aw_40percent = saveFileFigure;
+    end
+    
     clear Ka Ks L T Td Ti LAMBDA TD saveFileFigure loadFileVariables y u t m ON OFF p1 p2 regulatorType K T0D TI tank1 tank2 timeCalculations tumRegelMetoder saveFileVariables dT bv bv1 bv2 KLTMethod N P421_toggler regulator
     save labb1504e
 end
