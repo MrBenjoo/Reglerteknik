@@ -18,12 +18,21 @@ H2Max=745; % Max level-value for tank 2
 threshold_0_95 = (bv * H2Max * 0.95)/100;
 threshold_1_05 = (bv * H2Max * 1.05)/100;
 
-% finds the first sample that fullfills "insvängningsvillkoren" and multiplices it with the sampletime
-insvtid = min( find( ( y >= threshold_0_95) & ( y <= threshold_1_05 ) ) ) * dT;
+% temporary vector used for the calculations.
+% If we didnt use this vector it would produce wrong settling time
+tempV = y; 
 
-
-disp("Insvängningstiden är: " + insvtid)
-
-
+for k=1:length(tv)
+    within_treshold = ( max(tempV) <= threshold_1_05 ) && (min(tempV) >= threshold_0_95);
+    if( within_treshold )
+        insvtid = ( length(y)-length(tempV) ) * dT; 
+        disp("Insvängningstiden är: " + insvtid)
+        k
+        break;
+    else
+        tempV = y(k:length(y)); 
+    end
 end
+
+
 
