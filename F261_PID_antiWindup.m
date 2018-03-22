@@ -67,7 +67,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
         end
     end
     
-    if(u(k) > 255 || u(k) < 0)
+    if(u(k) > 255 || u(k) < 180)
         windup = true;
     elseif(a.analogRead('a0') > (H1Max - 10))
        windup = true;
