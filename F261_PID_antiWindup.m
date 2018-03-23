@@ -58,7 +58,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     % --------------------------------------------------
     
     
-    % --------------- update control signal and write to DAC0 ---------------
+    % --------------- update control signal and write to DAC1 ---------------
     if k>1 % we can not assume a value that does not exist yet
         if(windup)
             u(k) = K * (e(k) + TD * (e(k)-e(k-1))/dT);
@@ -69,7 +69,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     if(u(k) > 255 || u(k) < 180)
         windup = true;
-    elseif(a.analogRead('a0') > (H1Max - 10))
+    elseif(a.analogRead('a0') > (H1Max - 30))
        windup = true;
     else
         windup = false;
@@ -79,7 +79,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     disp("signal " + u(k))
     u(k) = min(max(0, round(u(k))), 255); % limit the signal between 0-255
     disp("signal " + u(k))
-    analogWrite(a,u(k),'DAC0');
+    analogWrite(a,u(k),'DAC1');
     % -----------------------------------------------------------------------
     
     
@@ -105,7 +105,7 @@ end % -for (end of the samples)
 
 
 % PART E: end experiment
-analogWrite(a,0,'DAC0'); % turn pump off
+analogWrite(a,0,'DAC1'); % turn pump off
 
 
 % plot a final picture

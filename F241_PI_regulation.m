@@ -54,14 +54,14 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     % --------------------------------------------------
     
     
-    % --------------- update control signal and write to DAC0 ---------------
+    % --------------- update control signal and write to DAC1 ---------------
     if k>1 % we can not assume a value that does not exist yet
         u(k) = K * (e(k) + dT/TI * sum(e));
     end
     
     u(k) = min(max(0, round(u(k))), 255); % limit the signal between 0-255
     disp("signal " + u(k))
-    analogWrite(a,u(k),'DAC0');
+    analogWrite(a,u(k),'DAC1');
     % -----------------------------------------------------------------------
     
     
@@ -87,7 +87,7 @@ end % -for (end of the samples)
 
 
 % PART E: end experiment
-analogWrite(a,0,'DAC0'); % turn pump off
+analogWrite(a,0,'DAC1'); % turn pump off
 
 
 % plot a final picture

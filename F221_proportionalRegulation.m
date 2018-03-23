@@ -53,11 +53,11 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     % ---------------------------------------------
     
     
-    % --------------- update control signal and write to DAC0 ---------------
+    % --------------- update control signal and write to DAC1 ---------------
     u(k) = KP * e(k); % p-regulator, default value KP=1
     u(k) = min(max(0, round(u(k))), 255); % limit the signal between 0-255
     disp("signal u(k) = " + u(k))
-    analogWrite(a,u(k),'DAC0');
+    analogWrite(a,u(k),'DAC1');
     % -----------------------------------------------------------------------
     
     
@@ -83,7 +83,7 @@ end % -for (end of the samples)
 
 
 % PART E: end experiment
-analogWrite(a,0,'DAC0'); % turn pump off
+analogWrite(a,0,'DAC1'); % turn pump off
 
 
 % plot a final picture

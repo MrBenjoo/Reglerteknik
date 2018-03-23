@@ -47,14 +47,14 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     % ---------------- Read sensor values --------------
     y(k) = a.analogRead(p); % measure water level in tank 1 or 2 depending on variable p
-    e(k) = r(k)-y(k);       % calculate the error (desired level - actual level)
+    %e(k) = r(k)-y(k);       % calculate the error (desired level - actual level)
     % --------------------------------------------------
     
     u(k) = 255;
-    
+    disp("signal " + u(k))
     u(k) = min(max(0, round(u(k))), 255)*(m/100); % limit the signal between 0-255
     disp("signal " + u(k))
-    analogWrite(a,u(k),'DAC0');
+    analogWrite(a,u(k),'DAC1');
     
     % ------- online-plot START -------
     figure(1)
@@ -79,7 +79,7 @@ end % -for (end of the samples)
 
 
 % PART E: end experiment
-analogWrite(a,0,'DAC0'); % turn pump off
+analogWrite(a,0,'DAC1'); % turn pump off
 
 
 % plot a final picture

@@ -1,29 +1,30 @@
 % Connect to the arduino, change COM-number as neccessary.
 % Need to run the program 2 times for it to start, do not clear variable second start.
 
-a = arduino_com('COM9');
+%load labb1504e
+%keepvars = {'a'};
 
+%a = arduino_com('COM3');
 % values stored in the struct regulator:
-%   - 1   = OFF
-%   - 2-5 = R1, R2, R3, R4
-%   - 6-9 = R1_aw, R2_aw, R3_aw, R4_aw
-%   - 10-11 = R1_PID_40percent_zn, R2_PID_40percent_lambdaT
-%   - 10-13 = R3_PID_40percent_lambda2T, R4_PID_40percent_amigo
-%   - 14-15 = R1_PID_aw_40percent_zn, R2_PID_aw_40percent_lambdaT
-%   - 16-17 = R3_PID_aw_40percent_lambda2T, R4_PID_aw_40percent_amigo
+%   - 1-4 = R1, R2, R3, R4
+%   - 5-8 = R1_aw, R2_aw, R3_aw, R4_aw
+%   - 9-10 = R1_PID_40percent_zn, R2_PID_40percent_lambdaT
+%   - 11-12 = R3_PID_40percent_lambda2T, R4_PID_40percent_amigo
+%   - 13-14 = R1_PID_aw_40percent_zn, R2_PID_aw_40percent_lambdaT
+%   - 15-16 = R3_PID_aw_40percent_lambda2T, R4_PID_aw_40percent_amigo
 toggler = struct('Toggler', {'OFF', 'R1', 'R2','R3','R4','R1_aw','R2_aw','R3_aw','R4_aw',...
     'R1_PID_40percent_zn', 'R2_PID_40percent_lambdaT','R3_PID_40percent_lambda2T','R4_PID_40percent_amigo',...
     'R1_PID_aw_40percent_zn','R2_PID_aw_40percent_lambdaT','R3_PID_aw_40percent_lambda2T','R4_PID_aw_40percent_amigo'});
-togglerP421 = toggler(9).Toggler;
+togglerP421 = toggler(3).Toggler;
 
-saveFileVariables = '.\data\Komplettering_P4.2.x\R4_PID_aw.mat';
-saveFileFigure = '.\Bilder\Komplettering_P4.2.x\R4_PID_aw.jpg';
+saveFileVariables = '.\data\Komplettering_P4.2.x\R2_PID_lambdaT.mat';
+saveFileFigure = '.\Bilder\Komplettering_P4.2.x\R2_PID_lambdaT.jpg';
 %Used only if timeCalculations = ON or KLTMethod = ON
-loadFileVariables = '.\data\komplettering_stegsvar\P.1.2.1_filtreread_stegsvar_undre_vattentank.mat';
+loadFileVariables = '.\data\komplettering_stegsvar\P.1.1.1_filtreread_stegsvar_ovre_vattentank.mat';
 
 % Constant parameter values
-N = 60*20;  % total samples
-dT = 1;     % sampling time
+N = 60*5;  % total samples
+dT = 2;     % sampling time
 bv1 = 60;   % desired level, in procent (0-100), for tank 1
 bv2 = 60;   % desired level, in procent (0-100), for tank 2
 bv = bv2;
@@ -32,16 +33,17 @@ ON = 1;
 p1 = 'a0'; % tank 1
 p2 = 'a1'; % tank 2
 m = 30; % control output power of pumpmotor (0% - 100%)
-K = 0.85;
-TI = 49.8;%135;
-TD = 4.9;%1.97;
+K = 3.0;
+TI = 90;%135;
+TD = 22.5;%1.97;
 
 % Configuration
 tank1 = OFF;
 tank2 = ON;
-KLTMethod = OFF;
+KLTMethod = ON;
 tumRegelMetoder = OFF; %ON for zigler-nichols
 timeCalculations = OFF;
+
 
 
 if(KLTMethod == ON || timeCalculations == ON)
@@ -50,7 +52,6 @@ if(KLTMethod == ON || timeCalculations == ON)
     tank2 = OFF;
     tumRegelMetoder = OFF;
 end
-
 
 % values stored in the struct regulator:
 %   - 1 = 'twoStateRegulator',
@@ -62,7 +63,7 @@ end
 regulator = struct('Type', {'twoStateRegulator',...
     'p_regulator', 'pi_regulator', 'pid_regulator',...
     'defaultStepAnswer', 'pid_aw_regulator'});
-regulatorType = regulator(6).Type;
+regulatorType = regulator(5).Type;
 
 % start regulating the tanks...
 if(tank1 == ON)
@@ -101,7 +102,7 @@ if(timeCalculations == ON)
     [insvtid] = F512_insvangningstid(y,N,bv,dT);
     [fv] = F513_kvarstaendefel(y,N,bv);
 end
-if(tank2 == ON && ~strcmp(togglerP421, 'OFF'))
+if(tank2 == ON)
     switch(togglerP421)
         %R1 output
         case 'R1'
@@ -216,11 +217,8 @@ if(tank2 == ON && ~strcmp(togglerP421, 'OFF'))
             R4_t_aw_40percent = t;
             R4_plot_aw_40percent = saveFileFigure;
     end
-    [stigtid] = F511_stigtid(y,N,bv,dT)
-    [insvtid] = F512_insvangningstid(y,N,bv,dT)
-    [fv] = F513_kvarstaendefel(y,N,bv)
-    clear toggler togglerP421 togglerType Ka Ks L T Td Ti LAMBDA TD saveFileFigure loadFileVariables y u t m ON OFF p1 p2 regulatorType K T0D TI tank1 tank2 timeCalculations tumRegelMetoder saveFileVariables dT bv bv1 bv2 KLTMethod N P421_toggler regulator
-    load komplettering_labb1504e
+    
+    clear togglerP421 togglerType Ka Ks L T Td Ti LAMBDA TD saveFileFigure loadFileVariables y u t m ON OFF p1 p2 regulatorType K T0D TI tank1 tank2 timeCalculations tumRegelMetoder saveFileVariables dT bv bv1 bv2 KLTMethod N P421_toggler regulator
     save komplettering_labb1504e
 end
 analogWrite(a,0,'DAC1')

@@ -1,5 +1,5 @@
-load ('.\data\P.1.1.1_stegsvar_ovre_vattentank.mat')
-
+load ('.\data\komplettering_stegsvar\P.1.2.1_stegsvar_komplettering.mat')
+y(1) = y(2);
 windowSize = 5;
 
 b = (1/windowSize)* ones(1, windowSize);
@@ -8,8 +8,8 @@ a = 1;
 
 y = filter(b,a,y);
 
-saveNameMat = '.\data\P.1.1.1_filtreread_stegsvar_ovre_vattentank.mat';
-saveNameJPG = '.\bilder\P.1.1.1_filtreread_stegsvar_ovre_vattentank.jpg';
+saveNameMat = '.\data\komplettering_stegsvar\P.1.2.1_filtreread_stegsvar_undre_vattentank.mat';
+saveNameJPG = '.\Bilder\komplettering_stegsvar\P.1.2.1_filtreread_stegsvar_undre_vattentank.jpg';
 
 figure(3)
 plot(t,y,'k-');

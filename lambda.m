@@ -3,14 +3,13 @@
 disp('***************************')
 disp('*** Execution: lambda.m ***')
 disp('***************************')
-Ks = K;
-
+Ks = K
 %p = 3
 %m = 1
 LAMBDA = T
 
 disp('PI-regulator, lmabda = T');
-Ka = (1/Ks)*(T/(L-LAMBDA))
+Ka = (1/Ks)*(T/(L+LAMBDA))
 Ti = T
 
 disp('PID-regulator, lambda = T');
@@ -21,7 +20,7 @@ Td = T*L / (L + 2*T)
 LAMBDA = 2*T
 
 disp('PI-regulator, lmabda = 2T');
-Ka = (1/Ks)*(T/(L-LAMBDA))
+Ka = (1/Ks)*(T/(L+LAMBDA))
 Ti = T
 
 disp('PID-regulator, lambda = 2T');

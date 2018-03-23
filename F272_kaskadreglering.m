@@ -56,9 +56,9 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     t(k)=k*dT; % update timevector
     
     
-    % --------------- update control signal and write to DAC0 ---------------
+    % --------------- update control signal and write to DAC1 ---------------
     if(mod(k-1, R) == 0)
-        analogWrite(a,u1(k),'DAC0');
+        analogWrite(a,u1(k),'DAC1');
         % in till R1 yttre kretsen, undre vattentanken
         y1(k) = a.analogRead(1); %läser av undre vattentanken
         
@@ -74,11 +74,11 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     u2(k) = min(max(0, round(u2(k))), 255)*(m/100); % limit the signal between 0-255
     disp("signal " + u(k))
-    analogWrite(a,u2(k),'DAC0');
+    analogWrite(a,u2(k),'DAC1');
     
     u1(k) = min(max(0, round(u1(k))), 255)*(m/100); % limit the signal between 0-255
     disp("signal " + u(k))
-    analogWrite(a,u(k),'DAC0');
+    analogWrite(a,u(k),'DAC1');
     % -----------------------------------------------------------------------
     
     
@@ -103,7 +103,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
 end % -for (end of the samples)
 
 % PART E: end experiment
-analogWrite(a,0,'DAC0'); % turn pump off
+analogWrite(a,0,'DAC1'); % turn pump off
 
 
 % plot a final picture
