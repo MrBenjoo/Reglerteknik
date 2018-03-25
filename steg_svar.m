@@ -8,32 +8,32 @@ a = arduino_com('COM9');
 %   - 2-5 = R1, R2, R3, R4
 %   - 6-9 = R1_aw, R2_aw, R3_aw, R4_aw
 %   - 10-11 = R1_PID_40percent_zn, R2_PID_40percent_lambdaT
-%   - 10-13 = R3_PID_40percent_lambda2T, R4_PID_40percent_amigo
+%   - 12-13 = R3_PID_40percent_lambda2T, R4_PID_40percent_amigo
 %   - 14-15 = R1_PID_aw_40percent_zn, R2_PID_aw_40percent_lambdaT
 %   - 16-17 = R3_PID_aw_40percent_lambda2T, R4_PID_aw_40percent_amigo
 toggler = struct('Toggler', {'OFF', 'R1', 'R2','R3','R4','R1_aw','R2_aw','R3_aw','R4_aw',...
     'R1_PID_40percent_zn', 'R2_PID_40percent_lambdaT','R3_PID_40percent_lambda2T','R4_PID_40percent_amigo',...
     'R1_PID_aw_40percent_zn','R2_PID_aw_40percent_lambdaT','R3_PID_aw_40percent_lambda2T','R4_PID_aw_40percent_amigo'});
-togglerP421 = toggler(9).Toggler;
+togglerP421 = toggler(17).Toggler;
 
-saveFileVariables = '.\data\Komplettering_P4.2.x\R4_PID_aw.mat';
-saveFileFigure = '.\Bilder\Komplettering_P4.2.x\R4_PID_aw.jpg';
+saveFileVariables = '.\data\Komplettering_P4.2.x\R4_PID_amigo_40percent.mat';
+saveFileFigure = '.\Bilder\Komplettering_P4.2.x\R4_PID_amigo_40percent.jpg';
 %Used only if timeCalculations = ON or KLTMethod = ON
 loadFileVariables = '.\data\komplettering_stegsvar\P.1.2.1_filtreread_stegsvar_undre_vattentank.mat';
 
 % Constant parameter values
-N = 60*20;  % total samples
-dT = 1;     % sampling time
-bv1 = 60;   % desired level, in procent (0-100), for tank 1
-bv2 = 60;   % desired level, in procent (0-100), for tank 2
+N = 60*10;  % total samples
+dT = 2;     % sampling time
+bv1 = 40;   % desired level, in procent (0-100), for tank 1
+bv2 = 40;   % desired level, in procent (0-100), for tank 2
 bv = bv2;
 OFF = 0;
 ON = 1;
 p1 = 'a0'; % tank 1
 p2 = 'a1'; % tank 2
 m = 30; % control output power of pumpmotor (0% - 100%)
-K = 0.85;
-TI = 49.8;%135;
+K = 0.86;
+TI = 49.8;
 TD = 4.9;%1.97;
 
 % Configuration
@@ -62,7 +62,7 @@ end
 regulator = struct('Type', {'twoStateRegulator',...
     'p_regulator', 'pi_regulator', 'pid_regulator',...
     'defaultStepAnswer', 'pid_aw_regulator'});
-regulatorType = regulator(6).Type;
+regulatorType = regulator(4).Type;
 
 % start regulating the tanks...
 if(tank1 == ON)

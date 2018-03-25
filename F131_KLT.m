@@ -20,7 +20,7 @@ N = length(tv);
 % system static gain is the final value of the step response because the stepvalue is constant.
 % the last 10 values ??are read and based on these, the average is calculated.
 latestValues = y(find(y,10,'last'));
-K = mean(latestValues)-y(1)/u(2)
+K = (mean(latestValues)-y(1))/u(2)
 % ---------------------------------------------
 
 
@@ -46,8 +46,6 @@ L = indexOfChange
 % --------------- FIND 'T' PARAMETER ---------------
 % highest value stored at index M
 % I = position of the highest value M.
-
-
 
 I = min(find(y > max(y*0.63)));
 

@@ -1,4 +1,4 @@
-function [y,u,t] = F261_PID_antiWindup(a,N,dT,p,bv,K,TI,TD, saveFile)
+function [y,u,t] = F261_PID_antiWindup(a,N,dT,p,bv,K,TI,TD,saveFile)
 
 % ******* PART A: Description of the different variables *******
 %   output values:
@@ -23,7 +23,7 @@ H2Max=745; % Max level-value for tank 2
 
 % ******* PART B: Initialization of inputs and outputs and internal variables *******
 % Calculate desired-level in absolute numbers
-r=(bv*H1Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
+r=(bv*H2Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
 % *******************************************************************************
 
 
@@ -67,7 +67,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
         end
     end
     
-    if(u(k) > 255 || u(k) < 180)
+    if(u(k) > 255 || u(k) < 0)
         windup = true;
     elseif(a.analogRead('a0') > (H1Max - 30))
        windup = true;
