@@ -2,6 +2,7 @@ function [insvtid] = F512_insvangningstid(y,tv,bv,dT)
 disp('**************************************')
 disp('*** Function: F512_insvangningstid ***')
 disp('**************************************')
+insvtid =  -1;
 % ***************************************************************
 %   output values:
 %       - insvtid: the time it takes from the beginning until all signal values ??are within the +/- 5% band of the stationary value.

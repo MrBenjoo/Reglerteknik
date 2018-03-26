@@ -17,32 +17,38 @@ initiationScript
 %************************
 % 1. REGULATOR TYPE
 %************************
-regulatorType = regulator(6).Type;
+regulatorType = regulator(4).Type;
 %************************
 % 2. TOGGLER TYPE
 %************************
-togglerP421 = toggler(7).Toggler;
+togglerP421 = toggler(13).Toggler;
 %************************
 % 3. SET CONFIGURATION
 %************************
 saveFileVariables = '.\data\P.2.1.2_twoState_60m.mat';
 savePath = '.\Bilder\Komplettering_P4.2.x\';
-savePath = strcat(path, togglerP421);
-savePath = strcat(path, '.jpg');
-saveFileFigure = path;
+savePath = strcat(savePath, togglerP421);
+savePath = strcat(savePath, '.jpg');
+saveFileFigure = savePath
 tank1 = OFF;
 tank2 = ON;
 tumRegelMetoder = OFF; %ON for zigler-nichols
 % Constant parameter values
-N = 30*16;   % total samples
-bv1 = 60;   % desired level, in procent (0-100), for tank 1
-bv2 = 60;   % desired level, in procent (0-100), for tank 2
-bv = bv2;
+N = 60*8;   % total samples
+bv1 = 40;   % desired level, in procent (0-100), for tank 1
+bv2 = 40;   % desired level, in procent (0-100), for tank 2
+bv = 40;
 m = 40;     % control output power of pumpmotor (0% - 100%)
 
-K = 0.1262;
-TI = 160.5;
-TD = 0.498; %1.97;
+%Amigo
+K = 1.09;
+TI = 43.03;
+TD = 3.94;
+
+%LambdaT
+% K = 0.125;
+% TI = 156;
+% TD = 3.90;
 
 KLTMethod = OFF;
 %Used only if timeCalculations = ON or KLTMethod = ON
@@ -65,7 +71,7 @@ if(tank2 == ON)
     disp('Regulating tank 2...')
     if(tumRegelMetoder == ON) %
         [y,u,t] = P311_ziegler_nichols(a,N,dT,p2,bv2,K,TI,TD,saveFileFigure);
-        %save(saveFileVariables,'y','u','t','K');
+        save(saveFileVariables,'y','u','t','K');
     else
         [y,u,t] = function_regulator(a, N, dT, bv2, p2, m, K, TI, TD, regulatorType, saveFileFigure);
         save(saveFileVariables,'y','u','t');
@@ -82,7 +88,7 @@ if(KLTMethod == ON)
 end
 
 if(tank2 == ON && ~strcmp(togglerP421, 'OFF'))
-    P421(y,u,t,togglerp421)
+    P421(y,u,t,togglerP421, saveFileFigure)
     timeCalculations;
 end
 
