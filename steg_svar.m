@@ -17,11 +17,11 @@ initiationScript
 %************************
 % 1. REGULATOR TYPE
 %************************
-regulatorType = regulator(4).Type;
+regulatorType = regulator(6).Type;
 %************************
 % 2. TOGGLER TYPE
 %************************
-togglerP421 = toggler(13).Toggler;
+togglerP421 = toggler(9).Toggler;
 %************************
 % 3. SET CONFIGURATION
 %************************
@@ -34,10 +34,10 @@ tank1 = OFF;
 tank2 = ON;
 tumRegelMetoder = OFF; %ON for zigler-nichols
 % Constant parameter values
-N = 60*8;   % total samples
-bv1 = 40;   % desired level, in procent (0-100), for tank 1
-bv2 = 40;   % desired level, in procent (0-100), for tank 2
-bv = 40;
+N = 60*11;   % total samples
+bv1 = 60;   % desired level, in procent (0-100), for tank 1
+bv2 = 60;   % desired level, in procent (0-100), for tank 2
+bv = 60;
 m = 40;     % control output power of pumpmotor (0% - 100%)
 
 %Amigo
