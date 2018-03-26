@@ -30,6 +30,7 @@ r=(bv*H2Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
 % *** PART C: Create and initialize different variables to save measurement results ***
 y = zeros(1, N);  % vector with N nulls on a (1) row to be filled with measurements of the level in water tank 1 and 2
 e = zeros(1, N);  % vector with N nulls on a (1) row to be filled with calculations of the error value e
+w = zeros(1, N);
 u = zeros(1, N);  % vector to be filled with calculations of the signal u
 t = (1:N)*dT;     % vector currently as a numbering of times from 1 to N times sampling time
 ok=0;             % used to detect too short sampling time
@@ -55,15 +56,17 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     % ---------------- Read sensor values --------------
     y(k) = a.analogRead(p); % measure water level in tank 1 or 2 depending on variable p
     e(k) = r(k)-y(k); % calculate the error (desired level - actual level)
-    % --------------------------------------------------
+    
+	% --------------------------------------------------
     
     
     % --------------- update control signal and write to DAC1 ---------------
     if k>1 % we can not assume a value that does not exist yet
-        if(windup)
+        w(k) = w(k-1) + e(k);
+		if(windup)
             u(k) = K * (e(k) + TD * (e(k)-e(k-1))/dT);
         else
-            u(k) = K * (e(k) + dT/TI * sum(e) + TD * (e(k)-e(k-1))/dT);
+            u(k) = K * (e(k) + dT/TI * w(k) + TD * (e(k)-e(k-1))/dT);
         end
     end
     

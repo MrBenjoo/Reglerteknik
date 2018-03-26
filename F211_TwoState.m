@@ -62,7 +62,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     u(k) = min(max(0, round(u(k))), 255)*(m/100); % limit the signal between 0-255
     disp("signal " + u(k))
-    analogWrite(a,u(k),'DAC0');
+    analogWrite(a,u(k),'DAC1');
     % -----------------------------------------------------------------------
     
     

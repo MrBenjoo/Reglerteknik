@@ -53,4 +53,6 @@ T = I - L; %antal samplingar
 T = T * tv(1) %antal sekunder
 % ---------------------------------------------
 
+amigo %calculates parameters for amigo
+lambda %calculates parameters for lambda
 end

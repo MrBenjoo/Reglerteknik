@@ -39,8 +39,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     y(k) = a.analogRead(p); % measure water level in tank 1 or 2 depending on variable p
     % --------------------------------------------------
     
-    u(k) = 255;
-    u(k) = min(max(0, round(u(k))), 255)*(m/100); % limit the signal between 0-255
+    u(k) = 255 * (m/100); % limit the signal between 0-255 and signal strengt to be m%
     disp("signal " + u(k))
     analogWrite(a,u(k),'DAC1');
     
