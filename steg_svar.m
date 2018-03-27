@@ -30,14 +30,19 @@ savePath = '.\Bilder\Komplettering_P4.2.x\';
 savePath = strcat(savePath, togglerP421);
 savePath = strcat(savePath, '.jpg');
 saveFileFigure = savePath
+
+savePath = '.\data\';
+savePath = strcat(savePath, togglerP421);
+savePath = strcat(savePath, '.mat');
+saveFile  = savePath
 tank1 = OFF;
 tank2 = ON;
 tumRegelMetoder = OFF; %ON for zigler-nichols
 % Constant parameter values
-N = 60*8;   % total samples
+N = 60*6;   % total samples
 bv1 = 60;   % desired level, in procent (0-100), for tank 1
-bv2 = 60;   % desired level, in procent (0-100), for tank 2
-bv = 60;
+bv2 = 40;   % desired level, in procent (0-100), for tank 2
+bv = bv2;
 m = 40;     % control output power of pumpmotor (0% - 100%)
 
 %Ziegler-Nichols
@@ -55,15 +60,6 @@ TD = 22.5
 % TI = 156;
 % TD = 3.90;
 
-
-K1 = 0.125;
-TI1 = 156;
-TD1 = 3.90;
-K2 = 3.0;
-TI2 = 90;
-TD2 =  22.5;
-R = 5;
-
 KLTMethod = OFF;
 %Used only if timeCalculations = ON or KLTMethod = ON
 loadFileVariables = '.\data\komplettering_stegsvar\P.1.2.1_filtreread_stegsvar_undre_vattentank.mat';
@@ -78,7 +74,7 @@ end
 if(tank1 == ON)
     disp('Regulating tank 1...')
     [y,u,t] = function_regulator(a, N, dT, bv1, p1, m, K, TI, TD, regulatorType, saveFileFigure);
-    save(saveFileVariables,'y','u','t');
+    save(saveFile,'y','u','t');
 end
 
 if(tank2 == ON)
@@ -87,12 +83,8 @@ if(tank2 == ON)
         [y,u,t] = P311_ziegler_nichols(a,N,dT,p2,bv2,K,TI,TD,saveFileFigure);
         save(saveFileVariables,'y','u','t','K');
     else
-        
        [y,u,t] = function_regulator(a, N, dT, bv, p, m, K, TI, TD, regulatorType, saveFile);
-        
-  
-        
-        save(saveFileVariables,'y','u','t');
+        save(saveFile,'y','u','t');
     end
     
     
