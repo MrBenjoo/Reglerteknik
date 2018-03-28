@@ -37,19 +37,21 @@ ok=0;             % used to detect too short sampling time
 % *************************************************************************************
 
 
+% if you want to get rid of strange values in the beginning
+% make a "read analog" before the loop of analog inputs:
+a.analogRead(p);
+
+
 % ******* PART D: start regulating *******
 for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     start = cputime; % start timer to measure exececution of one loop
-    if ok <0 % check if sampling time too short
-        k
+    if (ok < 0)      % check if sampling time too short
         disp('samplingtime too short! Increase the value for dT');
         return
     end
     
-    
     t(k) = k*dT; % update timevector
-    
     
     % ---------------- Read sensor values --------------
     y(k) = a.analogRead(p); % measure water level in tank 1 or 2 depending on variable p
@@ -109,7 +111,6 @@ else
     title('Tank 2, PID regulation');
     legend('y ', 'u ', 'r ')
 end
-
 
 saveas(figure(2), saveFile);
 

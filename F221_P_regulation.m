@@ -1,4 +1,4 @@
-function [y,u,t] = F221_proportionalRegulation(a,N,dT,p,bv,KP,saveFile)
+function [y,u,t] = F221_P_regulation(a,N,dT,p,bv,KP,saveFile)
 
 % ******* PART A: Description of the different variables *******
 %   output values:
@@ -32,31 +32,31 @@ ok=0;             % used to detect too short sampling time
 % *************************************************************************************
 
 
+% if you want to get rid of strange values in the beginning
+% make a "read analog" before the loop of analog inputs:
+a.analogRead(p);
+
+
 % ******* PART D: start regulating *******
 for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     start = cputime; % start timer to measure exececution of one loop
-    if ok <0 % check if sampling time too short
-        k
+    if (ok < 0)      % check if sampling time too short
         disp('samplingtime too short! Increase the value for dT');
         return
     end
     
-    
     t(k)=k*dT; % update timevector
-    
     
     % ------------ Read sensor values  ------------
     y(k)= a.analogRead(p); % measure water level in tank 1 or 2 depending on variable p
     e(k)= r(k)-y(k); % calculate the error (desired level - actual level)
-    disp("r(k) = " + r(k) + " y(k) =" + y(k))
     % ---------------------------------------------
     
     
     % --------------- update control signal and write to DAC1 ---------------
-    u(k) = KP * e(k); % p-regulator, default value KP=1
+    u(k) = KP * e(k); 
     u(k) = min(max(0, round(u(k))), 255); % limit the signal between 0-255
-    disp("signal u(k) = " + u(k))
     analogWrite(a,u(k),'DAC1');
     % -----------------------------------------------------------------------
     

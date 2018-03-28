@@ -1,4 +1,4 @@
-function [y,u,t] = F272_kaskadreglering(a,m,N,dT,bv,K1,TI1,TD1,K2,TI2,TD2,R, saveFile)
+function [y,u,t] = F272_kaskadreglering(a,N,dT,bv,K1,TI1,TD1,K2,TI2,TD2,R,saveFile)
 
 % ******* PART A: Description of the different variables *******
 %   output values:
@@ -44,19 +44,22 @@ ok=0;              % used to detect too short sampling time
 % *************************************************************************************
 signalYttreSystem = 0;
 
+
+% if you want to get rid of strange values in the beginning
+% make a "read analog" before the loop of analog inputs:
+a.analogRead('a1');
+
+
 % ******* PART D: start regulating *******
 for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     start = cputime; % start timer to measure exececution of one loop
-    if ok <0 % check if sampling time too short
-        k
+    if (ok < 0)      % check if sampling time too short
         disp('samplingtime too short! Increase the value for dT');
         return
     end
     
-    
     t(k)=k*dT; % update timevector
-    
     
     % --------------- update control signal and write to DAC1 ---------------
     if(mod(k-1, R) == 0)

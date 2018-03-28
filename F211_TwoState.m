@@ -1,4 +1,4 @@
-function [y,u,t] = F211_TwoState(a,N,dT,p,m,bv,saveFile)
+function [y,u,t] = F211_TwoState(a,N,dT,p,bv,saveFile)
 
 % ******* PART A: Description of the different variables *******
 %   output values:
@@ -33,19 +33,21 @@ ok=0;             % used to detect too short sampling time
 % *************************************************************************************
 
 
+% if you want to get rid of strange values in the beginning
+% make a "read analog" before the loop of analog inputs:
+a.analogRead(p);
+
+
 % ******* PART D: start regulating *******
 for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     start = cputime; % start timer to measure exececution of one loop
-    if ok <0 % check if sampling time too short
-        k
+    if (ok < 0)      % check if sampling time too short
         disp('samplingtime too short! Increase the value for dT');
         return
     end
     
-    
     t(k)=k*dT; % update timevector
-    
     
     % ---------------- Read sensor values --------------
     y(k)= a.analogRead(p); % measure water level in tank 1 or 2 depending on variable p
@@ -60,8 +62,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
         u(k) = 0;
     end
     
-    u(k) = min(max(0, round(u(k))), 255)*(m/100); % limit the signal between 0-255
-    disp("signal " + u(k))
+    u(k) = min(max(0, round(u(k))), 255); % limit the signal between 0-255
     analogWrite(a,u(k),'DAC1');
     % -----------------------------------------------------------------------
     
@@ -79,13 +80,11 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     legend('y ', 'u ', 'r ');
     % ---------------------------------
     
-    
     elapsed=cputime-start; % counts the amount of time in seconds
     ok=(dT-elapsed);       % saves the time margin in ok
     pause(ok);             % pauses remaining sampling time
     
 end % -for (end of the samples)
-
 
 
 % PART E: end experiment
@@ -98,16 +97,15 @@ if(p == 'a0')
     plot(t,y,'k-',t,u,'m:',t,r,'g:');
     xlabel('samplingar (k)')
     ylabel('level (y), signal (u), desired level (r)')
-    title('Tank 1, stegsvar');
+    title('Tank 1, Tvålägesreglering');
     legend('y ', 'u ', 'r ')
 else
     plot(t,y,'k-',t,u,'m:',t,r,'g:');
     xlabel('samplingar (k)')
     ylabel('level (y), signal (u), desired level (r)')
-    title('Tank 2, stegsvar');
+    title('Tank 2, Tvålägesreglering');
     legend('y ', 'u ', 'r ')
 end
-
 
 saveas(figure(2), saveFile);
 

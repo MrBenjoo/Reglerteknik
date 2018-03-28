@@ -1,4 +1,4 @@
-function [y,u,t] = F11_defaultStepAnswer(a,N,dT,p,bv,m,saveFile)
+function [y,u,t] = F11_defaultStepAnswer(a,N,dT,p,m,saveFile)
 
 % ******* PART A: Description of the different variables *******
 %   output values:
@@ -16,32 +16,35 @@ function [y,u,t] = F11_defaultStepAnswer(a,N,dT,p,bv,m,saveFile)
 
 
 % *** PART C: Create and initialize different variables to save measurement results ***
-y = zeros(1, N);  % vector with N nulls on a (1) row to be filled with measurements of the level in water tank 1 and 2
-u = zeros(1, N);  % vector to be filled with calculations of the signal u
-t = (1:N)*dT;     % vector currently as a numbering of times from 1 to N times sampling time
-ok=0;             % used to detect too short sampling time
+y = zeros(1, N);        % vector with N nulls on a (1) row to be filled with measurements of the level in water tank 1 and 2
+u(1:N) = 255*(m/100);   % limit the signal between 0-255 and signal strengt to be m%
+t = (1:N)*dT;           % vector currently as a numbering of times from 1 to N times sampling time
+ok=0;                   % used to detect too short sampling time
 % *************************************************************************************
+
+
+% if you want to get rid of strange values in the beginning
+% make a "read analog" before the loop of analog inputs:
+a.analogRead(p);
 
 
 % ******* PART D: start regulating *******
 for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     start = cputime; % start timer to measure exececution of one loop
-    if ok <0 % check if sampling time too short
-        k
+    if (ok < 0)      % check if sampling time too short
         disp('samplingtime too short! Increase the value for dT');
         return
     end
     
     t(k)=k*dT; % update timevector
     
-    % ---------------- Read sensor values --------------
+    % ---------------- Read and write from/to due --------------
     y(k) = a.analogRead(p); % measure water level in tank 1 or 2 depending on variable p
-    % --------------------------------------------------
-    
-    u(k) = 255 * (m/100); % limit the signal between 0-255 and signal strengt to be m%
-    disp("signal " + u(k))
+    disp("signal = " + u(k))
     analogWrite(a,u(k),'DAC1');
+    % ----------------------------------------------------------
+    
     
     % ------- online-plot START -------
     figure(1)
@@ -52,7 +55,6 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     else
         title('tank 2 stegsvar, level (y), signal (u)');
     end
-    disp("nivå: " + y(k));
     legend('y ', 'u ');
     % ------- online-plot END -------
     
@@ -61,7 +63,6 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     pause(ok);             % pauses remaining sampling time
     
 end % -for (end of the samples)
-
 
 
 % PART E: end experiment

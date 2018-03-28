@@ -3,7 +3,7 @@ OFF = 0;
 ON = 1;
 p1 = 'a0'; % tank 1
 p2 = 'a1'; % tank 2
-dT = 1;     % sampling time
+dT = 1;    % sampling time
 p = p2
 % values stored in the struct regulator:
 %   - 1 = 'twoStateRegulator',
