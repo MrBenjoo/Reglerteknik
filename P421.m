@@ -108,7 +108,7 @@ switch(togglerP421)
         R3_u_aw_40percent = u;
         R3_t_aw_40percent = t;
         R3_plot_aw_40percent    = saveFileFigure;
-        case 'kaskad_PID'
+    case 'kaskad_PID'
         %R3 output
         kaskad_y = y;
         kaskad_u = u;

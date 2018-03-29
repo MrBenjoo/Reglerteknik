@@ -28,7 +28,7 @@ K = (mean(latestValues)-y(1))/u(2)
 % --------------- FIND 'L' PARAMETER ---------------
 % finding the index where the regulation starts showing effect.
 % I = position of the highest value M.
-threshold = (max(y)- min(y))*0.05;  % get the difference between maxvalue and minvalue of y. Threshold is 5%
+threshold = (max(y)- min(y))*0.03;  % get the difference between maxvalue and minvalue of y. Threshold is 5%
 
 
 for k=1:N
@@ -47,7 +47,7 @@ L = indexOfChange
 % highest value stored at index M
 % I = position of the highest value M.
 
-I = min(find(y > max(y*0.63)));
+I = find(y > max(y*0.63), 1 );
 
 T = I - L; %antal samplingar
 T = T * tv(1) %antal sekunder

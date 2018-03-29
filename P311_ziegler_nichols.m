@@ -1,5 +1,5 @@
 function [y,u,t,K] = P311_ziegler_nichols(a,N,dT,p,bv,K,TI,TD,saveFile)
-
+                                       
 % ******* PART A: Description of the different variables *******
 %   output values:
 %       - y:    vector containing level values
@@ -31,6 +31,7 @@ r=(bv*H2Max/100)*ones(1,N); % skapar vektor med r i en rad med N element
 % *** PART C: Create and initialize different variables to save measurement results ***
 y = zeros(1, N);  % vector with N nulls on a (1) row to be filled with measurements of the level in water tank 1 and 2
 e = zeros(1, N);  % vector with N nulls on a (1) row to be filled with calculations of the error value e
+w = zeros(1, N);
 u = zeros(1, N);  % vector to be filled with calculations of the signal u
 t = (1:N)*dT;     % vector currently as a numbering of times from 1 to N times sampling time
 ok=0;             % used to detect too short sampling time
@@ -61,7 +62,9 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     % --------------- update control signal and write to DAC1 ---------------
     if k>1 % we can not assume a value that does not exist yet
-        u(k) = K * ( e(k) + dT/TI * sum(e) + TD * (e(k)-e(k-1))/dT );
+        %u(k) = K*( e(k) + dT/TI*sum(e) + TD*(e(k)-e(k-1))/dT );
+        w(k) = w(k-1) + e(k);
+        u(k) = K * (e(k) + dT/TI * w(k) + TD * (e(k)-e(k-1))/dT);
     end
     
     u(k) = min(max(0, round(u(k))), 255); % limit the signal between 0-255
@@ -72,7 +75,7 @@ for k=1:N % the loop will run N times, each time takes exactly dT seconds
     
     % ------- online-plot START -------
     figure(1)
-    plot(t,y,'k-',t,u,'m:',t,r,'g:');
+    plot(t,y,'k-',t,u,'m:',t,r,'g');
     xlabel('samplingar (k)');
     if(p == 'a0')
         title('tank 1 PID (zieger-nichols), level (y), signal (u), desired level(r)');
@@ -98,7 +101,7 @@ analogWrite(a,0,'DAC1'); % turn pump off
 % plot a final picture
 figure(2)
 if(p == 'a0')
-    plot(t,y,'k-',t,u,'m:',t,r,'g:');
+    plot(t,y,'k-',t,u,'m:',t,r,'g-');
     xlabel('samples (k)')
     ylabel('level (y), signal (u), desired level (r)')
     title('Tank 1, PID (zieger-nichols)')
