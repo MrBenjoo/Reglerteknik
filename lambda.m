@@ -4,8 +4,6 @@ disp('***************************')
 disp('*** Execution: lambda.m ***')
 disp('***************************')
 Ks = K
-%p = 3
-%m = 1
 LAMBDA = T
 
 disp('PI-regulator, lmabda = T');
