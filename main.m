@@ -14,11 +14,11 @@ initiationScript
 %************************
 % 1. REGULATOR TYPE
 %************************
-regulatorType = regulator(6).Type;
+regulatorType = regulator(4).Type;
 %************************
 % 2. TOGGLER TYPE
 %************************
-togglerP421 = toggler(17).Toggler;
+togglerP421 = toggler(12).Toggler;
 %************************
 % 3. SET CONFIGURATION
 %************************
@@ -27,7 +27,7 @@ togglerP421 = toggler(17).Toggler;
 if(strcmp(togglerP421, 'OFF'))
     savePath = '.\Bilder\P.3.1.1_ziegler-nichols_tank2_k4.jpg';
 else
-    savePath = '.\Bilder\P4.2.x\R4\';
+    savePath = '.\Bilder\P4.2.x\R3\';
     savePath = strcat(savePath, togglerP421);
     savePath = strcat(savePath, '.jpg');
 end
@@ -38,7 +38,7 @@ saveFileFigure = savePath;
 if(strcmp(togglerP421, 'OFF'))
     savePath = '.\data\P.3.1.1_ziegler-nichols_tank2_k4.mat';
 else
-    savePath = '.\data\P4.2.x\R4\';
+    savePath = '.\data\P4.2.x\R3\';
     savePath = strcat(savePath, togglerP421);
     savePath = strcat(savePath, '.mat');
 end
@@ -50,13 +50,13 @@ tank1 = OFF;            % ON to regulate tank1
 tank2 = ON;             % ON to regulate tank2
 tumRegelMetoder = OFF;   % ON for ziegler-nichols
 KLTMethod = OFF;        % ON to get KLT parameters
-N = 60*20;              % total samples
+N = 60*50;              % total samples
 bv1 = 40;               % desired level, in procent (0-100), for tank 1
 bv2 = 40;               % desired level, in procent (0-100), for tank 2
 m = 25;                 % control output power of pumpmotor (0% - 100%), used only in F11_defaultStepAnswer
 
 % ziegler, lambdaT, lambda2T, amigo
-[K,TI,TD] = getParameters('amigo');
+[K,TI,TD] = getParameters('lambda2T');
 K 
 TI 
 TD
