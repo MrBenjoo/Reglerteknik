@@ -14,11 +14,11 @@ initiationScript
 %************************
 % 1. REGULATOR TYPE
 %************************
-regulatorType = regulator(4).Type;
+regulatorType = regulator(6).Type;
 %************************
 % 2. TOGGLER TYPE
 %************************
-togglerP421 = toggler(1).Toggler;
+togglerP421 = toggler(17).Toggler;
 %************************
 % 3. SET CONFIGURATION
 %************************
@@ -48,16 +48,18 @@ saveFile = savePath;
 % Constant parameter values
 tank1 = OFF;            % ON to regulate tank1
 tank2 = ON;             % ON to regulate tank2
-tumRegelMetoder = ON;   % ON for ziegler-nichols
+tumRegelMetoder = OFF;   % ON for ziegler-nichols
 KLTMethod = OFF;        % ON to get KLT parameters
-N = 60*10;              % total samples
-bv1 = 50;               % desired level, in procent (0-100), for tank 1
-bv2 = 50;               % desired level, in procent (0-100), for tank 2
+N = 60*20;              % total samples
+bv1 = 40;               % desired level, in procent (0-100), for tank 1
+bv2 = 40;               % desired level, in procent (0-100), for tank 2
 m = 25;                 % control output power of pumpmotor (0% - 100%), used only in F11_defaultStepAnswer
 
 % ziegler, lambdaT, lambda2T, amigo
-[K,TI,TD] = getParameters('ziegler');
-
+[K,TI,TD] = getParameters('amigo');
+K 
+TI 
+TD
 
 
 
@@ -97,8 +99,6 @@ if(tank2 == ON)
     end
 end
 % -----------------------------------------------------------------------------------------------
-
-
 
 
 if(tank2 == ON && ~strcmp(togglerP421, 'OFF'))
