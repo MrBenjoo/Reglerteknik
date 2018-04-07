@@ -5,6 +5,11 @@ end
 
 initiationScript
 
+%First argument: regulator type [int]
+%Second argument: toggler type [int]
+%Third argument: save path [string]
+%Fourth argument: ziegler, lambdaT, lambda2T, amigo [string]
+configurationVector = {4, 1, 'P4.2.x\R1', 'ziegler'};
 % 1 - Choose regulator type
 % 2 - if save figures and variables -> set saveFileVariables and
 % saveFileFigure and choose togglerType
@@ -14,21 +19,21 @@ initiationScript
 %************************
 % 1. REGULATOR TYPE
 %************************
-regulatorType = regulator(6).Type;
+regulatorType = regulator(cell2mat(configurationVector(1))).Type;
 %************************
 % 2. TOGGLER TYPE
 %************************
-togglerP421 = toggler(16).Toggler;
+togglerP421 = toggler(cell2mat(configurationVector(2))).Toggler;
 %************************
 % 3. SET CONFIGURATION
 %************************
 
-figurePath = '.\Bilder\P4.2.x\R3\';
-variablePath = '.\data\P4.2.x\R3\';
+figurePath = strcat('.\Bilder\', cell2mat(configurationVector(3)));
+variablePath = strcat('.\data\', cell2mat(configurationVector(3)));
 
 % -------------- SET .JPG PATH --------------
 if(strcmp(togglerP421, 'OFF'))
-    savePath = '.\Bilder\P.3.1.1_ziegler-nichols_tank2_k4.jpg';
+    savePath = '.\Bilder\P.3.1.1_ziegler-nichols_tank2.jpg';
 else
     savePath = figurePath;
     savePath = strcat(savePath, togglerP421);
@@ -58,8 +63,8 @@ bv1 = 30;               % desired level, in procent (0-100), for tank 1
 bv2 = 30;               % desired level, in procent (0-100), for tank 2
 m = 25;                 % control output power of pumpmotor (0% - 100%), used only in F11_defaultStepAnswer
 
-% ziegler, lambdaT, lambda2T, amigo
-[K,TI,TD] = getParameters('lambda2T');
+
+[K,TI,TD] = getParameters(cell2mat(configurationVector(4)));
 K 
 TI 
 TD
