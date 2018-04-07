@@ -18,13 +18,13 @@ regulatorType = regulator(6).Type;
 %************************
 % 2. TOGGLER TYPE
 %************************
-togglerP421 = toggler(17).Toggler;
+togglerP421 = toggler(16).Toggler;
 %************************
 % 3. SET CONFIGURATION
 %************************
 
-figurePath = '.\Bilder\P4.2.x\R4\';
-variablePath = '.\data\P4.2.x\R4\';
+figurePath = '.\Bilder\P4.2.x\R3\';
+variablePath = '.\data\P4.2.x\R3\';
 
 % -------------- SET .JPG PATH --------------
 if(strcmp(togglerP421, 'OFF'))
@@ -51,15 +51,15 @@ saveFile = savePath;
 % Constant parameter values
 tank1 = OFF;            % ON to regulate tank1
 tank2 = ON;             % ON to regulate tank2
-tumRegelMetoder = OFF;   % ON for ziegler-nichols
+tumRegelMetoder = ON;   % ON for ziegler-nichols
 KLTMethod = OFF;        % ON to get KLT parameters
-N = 60*20;              % total samples
-bv1 = 40;               % desired level, in procent (0-100), for tank 1
-bv2 = 40;               % desired level, in procent (0-100), for tank 2
+N = 60*12;              % total samples
+bv1 = 30;               % desired level, in procent (0-100), for tank 1
+bv2 = 30;               % desired level, in procent (0-100), for tank 2
 m = 25;                 % control output power of pumpmotor (0% - 100%), used only in F11_defaultStepAnswer
 
 % ziegler, lambdaT, lambda2T, amigo
-[K,TI,TD] = getParameters('amigo');
+[K,TI,TD] = getParameters('lambda2T');
 K 
 TI 
 TD
