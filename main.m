@@ -9,7 +9,12 @@ initiationScript
 %Second argument: toggler type [int]
 %Third argument: save path [string]
 %Fourth argument: ziegler, lambdaT, lambda2T, amigo [string]
-configurationVector = {4, 1, 'P4.2.x\R1', 'ziegler'};
+configurationVector = {4, 1, 'temp', 'lambda2T'};
+
+%Ziegler plot
+%K_ziegler = 4.0; TI_ziegler = inf; TD_ziegler = 0;
+
+
 % 1 - Choose regulator type
 % 2 - if save figures and variables -> set saveFileVariables and
 % saveFileFigure and choose togglerType
@@ -33,7 +38,7 @@ variablePath = strcat('.\data\', cell2mat(configurationVector(3)));
 
 % -------------- SET .JPG PATH --------------
 if(strcmp(togglerP421, 'OFF'))
-    savePath = '.\Bilder\P.3.1.1_ziegler-nichols_tank2.jpg';
+    savePath = '.\Bilder\P.3.1.1_ziegler-nichols_tank2_k5_8.jpg';
 else
     savePath = figurePath;
     savePath = strcat(savePath, togglerP421);
@@ -56,13 +61,12 @@ saveFile = savePath;
 % Constant parameter values
 tank1 = OFF;            % ON to regulate tank1
 tank2 = ON;             % ON to regulate tank2
-tumRegelMetoder = ON;   % ON for ziegler-nichols
+tumRegelMetoder = OFF;   % ON for ziegler-nichols
 KLTMethod = OFF;        % ON to get KLT parameters
 N = 60*12;              % total samples
-bv1 = 30;               % desired level, in procent (0-100), for tank 1
-bv2 = 30;               % desired level, in procent (0-100), for tank 2
+bv1 = 60;               % desired level, in procent (0-100), for tank 1
+bv2 = 60;               % desired level, in procent (0-100), for tank 2
 m = 25;                 % control output power of pumpmotor (0% - 100%), used only in F11_defaultStepAnswer
-
 
 [K,TI,TD] = getParameters(cell2mat(configurationVector(4)));
 K 
@@ -99,10 +103,10 @@ end
 if(tank2 == ON)
     disp('Regulating tank 2...')
     if(tumRegelMetoder == ON)
-        [y,u,t] = P311_ziegler_nichols(a,N,dT,p2,bv2,4,inf,0,saveFileFigure);
+        [y,u,t] = P311_ziegler_nichols(a,N,dT,p2,bv2,K_ziegler,TI_ziegler,TD_ziegler,saveFileFigure);
         save(saveFile,'y','u','t');
     else
-        [y,u,t] = function_regulator(a, N, dT, bv2, p2, m, K, TI, TD, regulatorType, saveFileFigure);
+        [y,u,t] = function_regulator(a, N, dT, p2, bv2, m, K, TI, TD, regulatorType, saveFileFigure);
         save(saveFile,'y','u','t');
     end
 end

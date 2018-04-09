@@ -2,7 +2,7 @@ function [K,TI,TD] = getParameters(method)
 
 switch(method)
     case 'ziegler'
-        K = 3.0;
+        K = 2.4;
         TI = 90;
         TD = 22.5;
     case 'lambdaT'

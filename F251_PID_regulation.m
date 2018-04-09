@@ -36,7 +36,6 @@ t = (1:N)*dT;     % vector currently as a numbering of times from 1 to N times s
 ok=0;             % used to detect too short sampling time
 % *************************************************************************************
 
-
 % if you want to get rid of strange values in the beginning
 % make a "read analog" before the loop of analog inputs:
 a.analogRead(p);

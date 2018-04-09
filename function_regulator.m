@@ -1,4 +1,4 @@
-function [y,u,t] = function_regulator(a, N, dT, bv, p, m, K, TI, TD, regulatorType, saveFile)
+function [y,u,t] = function_regulator(a, N, dT, p, bv, m, K, TI, TD, regulatorType, saveFile)
 
 
 K2 = 0.125;
