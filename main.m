@@ -7,9 +7,9 @@ initiationScript
 
 %First argument: regulator type [int]
 %Second argument: toggler type [int]
-%Third argument: save path [string]
+%Third argument: save path [string] end the path with "<path>\"
 %Fourth argument: ziegler, lambdaT, lambda2T, amigo [string]
-configurationVector = {4, 1, 'temp', 'lambda2T'};
+configurationVector = {6, 10, 'P4.2.x\R1\', 'ziegler'};
 
 %Ziegler plot
 %K_ziegler = 4.0; TI_ziegler = inf; TD_ziegler = 0;
@@ -63,9 +63,9 @@ tank1 = OFF;            % ON to regulate tank1
 tank2 = ON;             % ON to regulate tank2
 tumRegelMetoder = OFF;   % ON for ziegler-nichols
 KLTMethod = OFF;        % ON to get KLT parameters
-N = 60*12;              % total samples
+N = 60*16;              % total samples
 bv1 = 60;               % desired level, in procent (0-100), for tank 1
-bv2 = 60;               % desired level, in procent (0-100), for tank 2
+bv2 = 40;               % desired level, in procent (0-100), for tank 2
 m = 25;                 % control output power of pumpmotor (0% - 100%), used only in F11_defaultStepAnswer
 
 [K,TI,TD] = getParameters(cell2mat(configurationVector(4)));
