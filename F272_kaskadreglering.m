@@ -127,7 +127,7 @@ figure(2)
 plot(t,y1,'k-',t,u1,'m:',t,r,'b');
 xlabel('samples (k)')
 ylabel('level (y), signal (u), desired level (r)')
-title('Tank 1, PID regulation');
+title('Tank 2, Kaskad');
 legend('y ', 'u ', 'r ')
 
 saveas(figure(2), saveFile);
