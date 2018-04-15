@@ -2188,7 +2188,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x3ca src/ASF/sam/drivers/adc/adc_sam3u.o
  .debug_macro   0x00000000       0x1c src/ASF/sam/drivers/adc/adc_sam3u.o
  .debug_line    0x00000000      0xb26 src/ASF/sam/drivers/adc/adc_sam3u.o
- .debug_str     0x00000000    0x5b7f6 src/ASF/sam/drivers/adc/adc_sam3u.o
+ .debug_str     0x00000000    0x5b7f1 src/ASF/sam/drivers/adc/adc_sam3u.o
  .comment       0x00000000       0x5a src/ASF/sam/drivers/adc/adc_sam3u.o
  .ARM.attributes
                 0x00000000       0x33 src/ASF/sam/drivers/adc/adc_sam3u.o
@@ -2435,7 +2435,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x3ca src/ASF/common/services/delay/sam/cycle_counter.o
  .debug_macro   0x00000000       0x22 src/ASF/common/services/delay/sam/cycle_counter.o
  .debug_line    0x00000000      0xb4e src/ASF/common/services/delay/sam/cycle_counter.o
- .debug_str     0x00000000    0x5b927 src/ASF/common/services/delay/sam/cycle_counter.o
+ .debug_str     0x00000000    0x5b922 src/ASF/common/services/delay/sam/cycle_counter.o
  .comment       0x00000000       0x5a src/ASF/common/services/delay/sam/cycle_counter.o
  .debug_frame   0x00000000       0x20 src/ASF/common/services/delay/sam/cycle_counter.o
  .ARM.attributes
@@ -3772,7 +3772,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x3ca src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_macro   0x00000000       0x3f src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_line    0x00000000      0xb62 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_str     0x00000000    0x5b807 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_str     0x00000000    0x5b802 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .comment       0x00000000       0x5a src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_frame   0x00000000       0x30 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .ARM.attributes
@@ -5170,7 +5170,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x256 src/ASF/sam/drivers/pmc/sleep.o
  .debug_macro   0x00000000      0x790 src/ASF/sam/drivers/pmc/sleep.o
  .debug_line    0x00000000      0xcbd src/ASF/sam/drivers/pmc/sleep.o
- .debug_str     0x00000000    0x5ef8f src/ASF/sam/drivers/pmc/sleep.o
+ .debug_str     0x00000000    0x5ef8a src/ASF/sam/drivers/pmc/sleep.o
  .comment       0x00000000       0x5a src/ASF/sam/drivers/pmc/sleep.o
  .debug_frame   0x00000000       0x60 src/ASF/sam/drivers/pmc/sleep.o
  .ARM.attributes
@@ -7762,47 +7762,47 @@ OUTPUT(dueSrv.elf elf32-littlearm)
  .debug_line    0x0000f9ae      0x40b src/ASF/sam/utils/syscalls/gcc/syscalls.o
  .debug_line    0x0000fdb9      0xec4 src/main.o
 
-.debug_str      0x00000000    0x63a94
- .debug_str     0x00000000    0x5bed2 src/ASF/sam/drivers/adc/adc.o
-                              0x5c2a5 (size before relaxing)
- .debug_str     0x0005bed2     0x4694 src/common/pin_mapper.o
-                              0x5fec1 (size before relaxing)
- .debug_str     0x00060566      0x888 src/io_control/analog_output.o
-                              0x607cf (size before relaxing)
- .debug_str     0x00060dee      0x16f src/io_control/dac.o
-                              0x6003a (size before relaxing)
- .debug_str     0x00060f5d      0x233 src/io_control/io_uart.o
-                              0x602c3 (size before relaxing)
- .debug_str     0x00061190      0x1ba src/matlab_coms/matlab_functions.o
-                              0x604e3 (size before relaxing)
- .debug_str     0x0006134a      0x110 src/matlab_coms/matlab_state.o
-                              0x600ba (size before relaxing)
- .debug_str     0x0006145a      0x27b src/ASF/sam/drivers/dacc/dacc.o
-                              0x5bc48 (size before relaxing)
- .debug_str     0x000616d5      0x77b src/ASF/sam/drivers/pwm/pwm.o
-                              0x5c4ae (size before relaxing)
- .debug_str     0x00061e50       0x21 src/io_control/adc.o
-                              0x6031b (size before relaxing)
- .debug_str     0x00061e71      0x34b src/ASF/common/services/clock/sam3x/sysclk.o
-                              0x5f6da (size before relaxing)
- .debug_str     0x000621bc       0xe1 src/ASF/sam/boards/arduino_due_x/init.o
-                              0x5fdbc (size before relaxing)
- .debug_str     0x0006229d      0x3eb src/ASF/sam/drivers/pio/pio.o
-                              0x5c15b (size before relaxing)
- .debug_str     0x00062688      0x44e src/ASF/sam/drivers/pio/pio_handler.o
-                              0x5c254 (size before relaxing)
- .debug_str     0x00062ad6      0x576 src/ASF/sam/drivers/pmc/pmc.o
-                              0x5c1d1 (size before relaxing)
- .debug_str     0x0006304c       0x4d src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
-                              0x5b7d0 (size before relaxing)
- .debug_str     0x00063099       0xd9 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
-                              0x5b8cc (size before relaxing)
- .debug_str     0x00063172      0x195 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
-                              0x5baa8 (size before relaxing)
- .debug_str     0x00063307      0x76a src/ASF/sam/utils/syscalls/gcc/syscalls.o
-                               0x7431 (size before relaxing)
- .debug_str     0x00063a71       0x23 src/main.o
-                              0x60099 (size before relaxing)
+.debug_str      0x00000000    0x63a8f
+ .debug_str     0x00000000    0x5becd src/ASF/sam/drivers/adc/adc.o
+                              0x5c2a0 (size before relaxing)
+ .debug_str     0x0005becd     0x4694 src/common/pin_mapper.o
+                              0x5febc (size before relaxing)
+ .debug_str     0x00060561      0x888 src/io_control/analog_output.o
+                              0x607ca (size before relaxing)
+ .debug_str     0x00060de9      0x16f src/io_control/dac.o
+                              0x60035 (size before relaxing)
+ .debug_str     0x00060f58      0x233 src/io_control/io_uart.o
+                              0x602be (size before relaxing)
+ .debug_str     0x0006118b      0x1ba src/matlab_coms/matlab_functions.o
+                              0x604de (size before relaxing)
+ .debug_str     0x00061345      0x110 src/matlab_coms/matlab_state.o
+                              0x600b5 (size before relaxing)
+ .debug_str     0x00061455      0x27b src/ASF/sam/drivers/dacc/dacc.o
+                              0x5bc43 (size before relaxing)
+ .debug_str     0x000616d0      0x77b src/ASF/sam/drivers/pwm/pwm.o
+                              0x5c4a9 (size before relaxing)
+ .debug_str     0x00061e4b       0x21 src/io_control/adc.o
+                              0x60316 (size before relaxing)
+ .debug_str     0x00061e6c      0x34b src/ASF/common/services/clock/sam3x/sysclk.o
+                              0x5f6d5 (size before relaxing)
+ .debug_str     0x000621b7       0xe1 src/ASF/sam/boards/arduino_due_x/init.o
+                              0x5fdb7 (size before relaxing)
+ .debug_str     0x00062298      0x3eb src/ASF/sam/drivers/pio/pio.o
+                              0x5c156 (size before relaxing)
+ .debug_str     0x00062683      0x44e src/ASF/sam/drivers/pio/pio_handler.o
+                              0x5c24f (size before relaxing)
+ .debug_str     0x00062ad1      0x576 src/ASF/sam/drivers/pmc/pmc.o
+                              0x5c1cc (size before relaxing)
+ .debug_str     0x00063047       0x4d src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
+                              0x5b7cb (size before relaxing)
+ .debug_str     0x00063094       0xd9 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+                              0x5b8c7 (size before relaxing)
+ .debug_str     0x0006316d      0x195 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
+                              0x5baa3 (size before relaxing)
+ .debug_str     0x00063302      0x76a src/ASF/sam/utils/syscalls/gcc/syscalls.o
+                               0x742c (size before relaxing)
+ .debug_str     0x00063a6c       0x23 src/main.o
+                              0x60094 (size before relaxing)
 
 .debug_frame    0x00000000     0x204c
  .debug_frame   0x00000000      0x320 src/ASF/sam/drivers/adc/adc.o
